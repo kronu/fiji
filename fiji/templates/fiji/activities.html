@@ -1,0 +1,513 @@
+{% extends "fiji/layout.html" %}
+{% load static %}
+
+{% block title %}Activities &#10023;{% endblock %}
+
+{% block body %}
+
+{% if message %} 
+    <div class="message">{{message}}</div>
+{% endif %}
+
+<div class="divacti">
+    <div class="actititle">
+        <h1 style="color: steelblue; font-weight: bold;">Our activity recommendations</h1>
+        <p>Fiji's pristine waters, white sand beaches, and lush rainforests make up a perfect natural wonderland for a plethora of activities. 
+            Whether traveling with friends, family or your partner, you'll find amazing immersive experiences. There's an adventure to be 
+            found for everyone in Fiji.</p>
+    </div>
+    
+    <div id="accordion">
+        <div class="card" style="margin: 1vh 0;">
+            <button class="btn btntoggle" info="1" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <div id="headingOne">
+                    <h5 class="mb-0 titleacti">
+                        Sport <i id="arrow-1" class="arrow rotate down"></i>
+                    </h5>
+                </div>
+            </button>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                    <div style="width: 100%;">
+
+                        <div class="imageacti1">
+                            <img id="image-1" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti2">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Discover the delights of the world’s "Soft Coral Capital"</h5>
+                                <p>There’s a reason that seasoned scuba divers are drawn to Fiji – other than the friendly locals of course! Stunning 
+                                    green islands meet warm coastal seas with vibrant coral reef cities filled with fish and coral. Once the curse of 
+                                    yesteryear’s sailing ships, Fiji’s maze of brilliant coral reefs are now celebrated for their diversity of habitat 
+                                    and marine life. Even dive greats like Jean Michel Cousteau call it paradise. Some of the world’s longest barrier 
+                                    reefs can be found here; the ‘Great Sea Reef’ and the ‘Great Astrolabe Reef’ and multiple world class dive sites 
+                                    like ‘Grand Central Station’, Nigali Passage and the ‘Great White Wall’.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-1" number="1"> 
+                                    <option value="https://flyandsea.com/wp-content/uploads/2019/10/Fiji-reef-3-1200x787.jpg" selected>Bligh Water (Viti Levu)</option>
+                                    <option value="https://blog.nationalgeographic.org/wp-content/uploads/2016/03/Turbinaria-corals-flourishing-in-Nigali-lagoon-in-Gau_Jack-Sue-Drafahl.jpg">Nigali Passage (Gau Island)</option>
+                                    <option value="https://www.dive-the-world.com/images-webp/gallery/pages/medium/e782922abb-fiji-uw18-xl.jpg">Koro Sea (Gau Island)</option>
+                                    <option value="https://lp-cms-production.imgix.net/features/2018/12/20180928-IMG_2819-8916ed3efe2e.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850">Beqa Lagoon (Beqa Island)</option>
+                                    <option value="https://www.fijimarinas.com/wp-content/uploads/2014/03/Bluestreak-Fusilier-School1.jpg">Cakaulevu Reef (Vanua Levu)</option>
+                                    <option value="https://www.fiji-bookings.com/uploads/content/fiji-diving/Kadavu%20Group/diving-kadavu-worms.jpg">Great Astrolabe Reef (Kadavu Island)</option>
+                                    <option value="https://www.divebuddy.com/members/photos/divesite_4922_5340.jpg">Grand Central Station (Namena Island)</option>
+                                    <option value="https://twoatsea.com//wp-content/uploads/2015/04/wall-3.jpg">Great White Wall (Taveuni Island)</option>
+                                </select>
+                                <input name="activity" value="Sport, Diving" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-1" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="1" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <hr style="clear: both;">
+
+                        <div class="imageacti2">
+                            <img id="image-2" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti1">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Surf on the clearest waves and see our coral reefs</h5>
+                                <p>Who hasn’t heard of the legendary waves at Cloudbreak, Restaurants, and Frigates, three of the best left-handers on 
+                                    the planet, and dreamed about surfing them or at least having a peek at the pros? Most of Fiji’s iconic surf breaks 
+                                    are located offshore and can only be accessed by boat. Furthermore, all the waves break over reefs. They are usually 
+                                    shallow, powerful, hollow, and fast - more recommended for experienced surfers, intermediates and above. Don’t 
+                                    worry if you’re just starting out or don’t have enough experience yet; you’ll find a few mellow and beginner-friendly 
+                                    surf spots as well, as well as surf camps in Fiji that will give you all the guidance you need.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-2" number="2">
+                                    <option value="https://img.redbull.com/images/c_crop,w_2500,h_1667,x_0,y_0,f_auto,q_auto/c_scale,w_1500/redbullcom/2018/06/18/3ef620ef-9613-412c-a38e-cb1f83f6d046/laurie-towner-cloudbreak-fiji-may-2018">Cloudbreak (Namotu Island)</option>
+                                    <option value="https://www.waterwaystravel.com/wp-content/uploads/2015/07/namotu_surf5_5978923741_o.jpg">Namotu Lefts (Tavarua Island)</option>
+                                    <option value="https://www.fijimarinas.com/wp-content/uploads/2013/02/Ian-Thomson-photo.jpg">Natadola (Viti Levu)</option>
+                                    <option value="https://www.worldsurfaris.com/sites/default/files/styles/hero-small/public/AGJS1959.jpg">Vunaniu Pass (Viti Levu)</option>
+                                    <option value="https://fijipocketguide.com/wp-content/uploads/2018/11/2.-100708-34-Surfer-Credit-Tourism-Fiji_optimized-1024x681.jpg">King Kong Left & Right (Kadavu Island)</option>
+                                </select>
+                                <input name="activity" value="Sport, Surf" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-2" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="2" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <hr style="clear: both;">
+                        
+                        <div class="imageacti1">
+                            <img id="image-3" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti2">
+                            <form  action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Explore Fiji's unknown wild side</h5>
+                                <p>While most people associate Fiji with long sandy beaches and ultimate relaxation, it’s also home to some incredible 
+                                    hiking routes. We aim to take you off the beaten track, to experience Fiji’s interior – its dramatic peaks, 
+                                    pristine forests, sparkling rivers, remote villages and unique history – and by going on foot you have the 
+                                    opportunity to experience the vibrant traditional culture that runs deep within Fijian society. Escape from Fiji’s 
+                                    beautiful beaches and to create the space for a genuine cultural experience and an insight into rural Fiji.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-3" number="3">
+                                    <option value="https://caradonna-prod.s3.us-east-2.amazonaws.com/prod/s3fs-public/styles/category_navigation/public/fiji-ov_adv.jpg">Lavena Coastal Walk (Taveuni Island)</option>
+                                    <option value="https://drifterplanet.com/wp-content/uploads/2015/11/Tavoro-Waterfalls-in-Bouma-National-Heritage-Park-Taveuni-Island-Fiji.jpg">Tavoro Waterfalls (Taveuni Island)</option>
+                                    <option value="https://news.flinders.edu.au/wp-content/uploads/2018/05/wasp-Fiji-New-Colombo-Mobility-Plan-students-from-SA-hike-along-the-peak-line-below-the-summit-of-Mount-Tomanivi-Viti-Levu-Fiji-Photo-James-Dorey.jpg">Mount Tomanivi (Viti Levu)</option>
+                                    <option value="https://www.hlimg.com/images/things2do/738X538/View-from-Koroyanitu-Range.jpg">Mount Batilamu (Viti Levu)</option>
+                                    <option value="https://www.fijitime.it/media/asia/Fiji/matangi_private_island_resort.jpg">Matangi Island</option>
+                                    <option value="https://media-cdn.tripadvisor.com/media/photo-s/04/a4/09/52/qamea-resort-and-spa.jpg">Qamea Island</option>
+                                </select>
+                                <input name="activity" value="Sport, Hiking" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-3" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="3" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <hr style="clear: both;">
+
+                        <div class="imageacti2">
+                            <img id="image-4" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti1">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Lush rainforest, narrow canyons and hidden waterfalls</h5>
+                                <p>Whitewater rafting in Fiji? Yes, and there’s no better way to experience the authentic natural and cultural 
+                                    heritage of the islands, than on a highlands rafting adventure with Rivers Fiji. Are you looking for adventure? 
+                                    Need a break from the beach? The Fiji Islands are a tropical paradise renowned for white sandy beaches, romantic 
+                                    getaways, backpacker holidays and world-class diving, but in 1998 whitewater rafting pioneered in Fiji, and since 
+                                    then staff of friendly and well-trained Fijian guides have offered world-class service and unmatched travel 
+                                    experiences for active adventurers of all ages and abilities on the rivers of Fiji’s Viti Levu.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-4" number="4">
+                                    <option value="https://www.oars.com/wp-content/uploads/2015/12/fiji-upper-navua-010.jpg">Upper Navua River Rafting (Viti Levu)</option>
+                                    <option value="https://images.squarespace-cdn.com/content/v1/5ad42b9e96d455dd6241a0e3/1530243286192-UU76Z43F09EMBA0JD6Q6/ke17ZwdGBToddI8pDm48kCjOT9mRVTtaYoGs-3XH1ex7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kD6Ec8Uq9YczfrzwR7e2MiomfDhb5GKccBUP44UeKsg7f4aSJXSNYXviWPMkvJCEA/InflatabledKayaking.jpg?format=1500w">Middle Navua River Kayaking (Viti Levu)</option>
+                                    <option value="https://image.arrivalguides.com/x/14/facba9117a61118b1024cedb51f8deb9.jpg">Luva River Kayaking (Viti Levu)</option>
+                                </select>
+                                <input name="activity" value="Sport, Rafting & Kayaking" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-4" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="4" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <hr style="clear: both;">
+
+                        <div class="imageacti1">
+                            <img id="image-5" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti2">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Breathe and... swing!</h5>
+                                <p>Golf has been popular in Fiji since the colonial era. Some of the golf courses were actually laid out to meet the 
+                                    recreational needs of the old Colonial Sugar Refining Company. Today golf continues to be very popular and the 
+                                    good news for visitors is that green fees are quite reasonable compared to Hawaii and other golf hot spots. 
+                                    Boasting beautiful weather year-round, there’s rarely a day that doesn’t invite you onto the green. There 
+                                    are six 18-hole courses in Fiji and all except one are located on Viti Levu. Of the five on the main island two 
+                                    are in the Suva area, and three are in the “West”, the Nadi/Coral Coast area.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-5" number="5">
+                                    <option value="https://www.myfiji.com/wp-content/uploads/sites/20/2017/06/MF_My-Fiji_Website-Images_golf2.jpg">Denarau Golf & Racket Club (Viti Levu)</option>
+                                    <option value="http://golf.thepearlsouthpacific.com/wp-content/uploads/2015/10/The-Pearl-Resort_Golf_Aerial-2-e1449071294876.jpg">The Pearl South Pacific Fiji Resort (Viti Levu)</option>
+                                    <option value="http://www.natadolabay.com/wp-content/uploads/2014/07/Natadola_1213AerialWide_8197.jpg">Natadola Bay Club (Viti Levu)</option>
+                                    <option value="https://www.travelonline.com/fiji/coral-coast/accommodation/shangri-la-fijian-resort-spa/9-hole-peter-thomson-golf-course-93487-crop.jpg">The Fiji Golf Club (Viti Levu)</option>
+                                    <option value="https://www.fiji-budget-vacations.com/images/5golf.jpg">Nadi Airport Golf Club (Viti Levu)</option>
+                                    <option value="https://i.insider.com/557f02796da811a95b322ae3?width=800&format=jpeg">Laucala Island</option>
+                                </select>
+                                <input name="activity" value="Sport, Golf" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-5" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="5" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin: 1vh 0;">
+            <button class="btn btntoggle" info="2" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <div id="headingTwo">
+                    <h5 class="mb-0 titleacti">
+                        Nature <i id="arrow-2" class="rotate arrow"></i>
+                    </h5>
+                </div>
+            </button>
+        
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+                <div class="card-body">
+                    <div style="width: 100%;">
+
+                        <div class="imageacti1">
+                            <img id="image-6" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti2">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Dreamy beaches exist in here</h5>
+                                <p>Without a doubt, Fiji is home to some of the most idyllic and beautiful beaches in the world. With so many 
+                                    different resorts and so much geographic diversity among Fiji’s 333 islands, how do you make sure you get the 
+                                    ultimate beach experience that you are looking for? The good news is, in Fiji you are only a short boat ride or 
+                                    quick helicopter flight away from a pristine virgin beach that no one knows about. These islands contain lush, 
+                                    soft, white sands, crystal clear water and snorkel-perfect reefs. Make sure that the picture perfect beach that you 
+                                    always dreamed of will be right in front of you when coming to Fiji.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-6" number="6">
+                                    <option value="https://i.ytimg.com/vi/9c5V4Jz7hig/maxresdefault.jpg">Yasawa Island</option>
+                                    <option value="http://www.panpacific.it/wp-content/uploads/2015/02/mamanuca-hotels-vomo-island-1.jpg">Vomo Island</option>
+                                    <option value="https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6f/73/8b.jpg">Malolo Island</option>
+                                    <option value="https://www.fijiislands.com.au/wp-content/uploads/2018/10/fiji-travel-review-matamanoa-island-resort.jpg">Tokoriki Island</option>
+                                    <option value="https://www.livingadamis.it/wp-content/uploads/2019/07/shutterstock_1148481749-1024x767.jpg">Monuriki Island</option>
+                                    <option value="https://media-cdn.tripadvisor.com/media/photo-s/1b/45/03/bf/exterior.jpg">Castaway Island (Qalito Island)</option>
+                                    <option value="http://www.natadolabeach.com.fj/wp-content/uploads/Banner_5-1583x891.jpg">Natadola Bay (Viti Levu)</option>
+                                </select>
+                                <input name="activity" value="Nature, Beaches" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-6" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="6" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <hr style="clear: both;">
+
+                        <div class="imageacti2">
+                            <img id="image-7" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti1">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Listening to National Parks' melody</h5>
+                                <p>Fiji's national parks are pristine, vast and bursting with life. Protected cloud forests, coasts, 
+                                    mangroves and dense bushland exist there. This includes outstanding natural beauty and include features, such as hiking trails, 
+                                    natural scenery and abundant exotic wildlife. The best part of this parks is enjoying intimate and quality moments 
+                                    with your truly beloved ones, away from crowded landscapes, whilst still savor the untouched beauty of the National 
+                                    Parks. Exploring at least one of Fiji’s national parks is a fabulous inclusion in your Fiji holiday itinerary. 
+                                    This is a must in all trips to the country!</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-7" number="7">
+                                    <option value="https://strapi-images-prod.s3.us-west-1.amazonaws.com/viti-levu-fiji-shutterstock_554650135_4e3f773fe7.jpeg">Koroyanitu National Park (Viti Levu)</option>
+                                    <option value="https://i1.wp.com/AnotherJayInParadise.com/wp-content/uploads/2019/01/DJI_0251.MP4.00_01_18_16.Still001.jpg">Sigatoka Sand Dunes National Park (Viti Levu)</option>
+                                    <option value="https://queenscommonwealthcanopy.org/content/uploads/2016/11/Main-Pool-2.jpg">Colo-i-Suva Forest Reserve (Viti Levu)</option>
+                                    <option value="https://upload.wikimedia.org/wikipedia/commons/8/86/Nausori_Highlands%2C_Fiji.jpg">Nausori Highlands (Viti Levu)</option>
+                                    <option value="https://chantae.com/wp-content/uploads/2020/04/Tides-Reach193.jpg">Bouma National Park (Taveuni Island)</option>
+                                    <option value="https://media-cdn.tripadvisor.com/media/photo-s/02/48/9c/33/lovoni-village.jpg">Lovoni Trail (Ovalau Island)</option>
+                                </select>
+                                <input name="activity" value="Nature, National Parks" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-7" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="7" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <hr style="clear: both;">
+
+                        <div class="imageacti1">
+                            <img id="image-8" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti2">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Water falls at nature's rhythm...</h5>
+                                <p>Fiji’s sandy beaches, delicious seafood and a bevy of waterfalls attract tourists from far and wide. Fiji islands 
+                                    are also home to some of the most spectacular tropical mountainous regions, delivering breathtaking waterfalls 
+                                    and hiking trails worthy of any traveller’s bucket list. Although Fiji comprises of more than 300 islands, only a 
+                                    few of them are high enough to have waterfalls. The rest are either uninhabited or lack the topographical 
+                                    conditions conducive for waterfalls. The waterfalls in Fiji are nothing short of stellar.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-8" number="8">
+                                    <option value="https://www.intrepidtravel.com/adventures/wp-content/uploads/2019/01/Savulelele-waterfall_Ra_Province_Fiji-e1548799440330.jpg">Savulelele Waterfalls (Viti Levu)</option>
+                                    <option value="https://localxconnect.com/wp-content/uploads/2017/05/Biausevu-Waterfall.jpg">Biausevu Waterfall (Viti Levu)</option>
+                                    <option value="https://www.myfiji.com/wp-content/uploads/sites/20/2020/07/Fiji-waterfalls-Vuadomo.jpg">Nakawaga Waterfalls (Vanua Levu)</option>
+                                    <option value="https://images.world-of-waterfalls.com/Bouma_156_12312005.jpg">Tavoro Waterfalls (Taveuni Island)</option>
+                                    <option value="https://images.world-of-waterfalls.com/Lavena_Coastal_Walk_008_12312005.jpg">Wainibau Falls (Taveuni Island)</option>
+                                </select>
+                                <input name="activity" value="Nature, Waterfalls" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-8" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="8" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <hr style="clear: both;">
+
+                        <div class="imageacti2">
+                            <img id="image-9" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti1">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Birdwatching - rainforest's musicians</h5>
+                                <p>Fiji not only offers amazing birds and birdwatching, it also provides some of the most scenically beautiful places 
+                                    in the world to do it in. Fiji is a true birdwatcher’s paradise, with rare species and endemic species brightening 
+                                    up the forests and skies. Spectacular looking birds to attract bird watching visitors from throughout the world. 
+                                    In all, there are about 80 species of terrestrial and freshwater birds. They are distributed throughout the islands 
+                                    but those interested in sampling an array bird should consider visiting three islands: Viti Levu (which has 56 of 
+                                    the 81 known species found in the group), Kadavu, and the Garden Island of Taveuni.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-9" number="9">
+                                    <option value="https://cdn2.wanderlust.co.uk/media/1039/shutterstock_1306370668.jpg">Waisali Rainforest Reserve (Vanua Levu)</option>
+                                    <option value="https://cdn2.wanderlust.co.uk/media/1045/shutterstock_1498475369.jpg">Sovi Basin Protected Area (Viti Levu)</option>
+                                    <option value="https://i1.wp.com/matava.com/wp-content/uploads/2012/06/Collared-Kingfisher-Thanks-to-Tom-Tarrant.jpg">Kadavu Rainforest (Kadavu Island)</option>
+                                    <option value="https://cdn2.wanderlust.co.uk/media/1020/shutterstock_720890041.jpg">Bouma National Heritage Park (Taveuni Island)</option>
+                                </select>
+                                <input name="activity" value="Nature, Birdwatching" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-9" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="9" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin: 1vh 0;">
+            <button class="btn btntoggle" info="3" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <div id="headingThree">
+                    <h5 class="mb-0 titleacti">
+                        Culture <i id="arrow-3" class="rotate arrow"></i>
+                    </h5>
+                </div>
+            </button>
+        
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+                <div class="card-body">
+                    <div style="width: 100%;">
+
+                        <div class="imageacti1">
+                            <img id="image-10" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti2">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Touched by the warmth and traditions of our beautiful people</h5>
+                                <p>All Fijians are strongly rooted to their culture, their land and their mataqali (family). Most resorts offer very 
+                                    relaxed village tours. Taking a tour of a traditional Fijian village can be somewhat of a trip back in time where 
+                                    customs have remained in place for hundreds of years. You'll be able to wander freely and meet many of the 
+                                    villagers and children as they go about their daily life. When visiting a village there is a certain amount of 
+                                    etiquette to be aware of. It's important you respect village customs and culture during visits. Please read and 
+                                    learn more on how to be respectful in villages.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-10" number="10">
+                                    <option value="https://ychef.files.bbci.co.uk/624x351/p05d51jz.jpg">Navala (Viti Levu)</option>
+                                    <option value="https://media-cdn.tripadvisor.com/media/photo-s/0f/b4/0c/32/photo3jpg.jpg">Savusavu/Vuadomo Village (Vanua Levu)</option>
+                                    <option value="https://i.pinimg.com/originals/ac/23/4d/ac234da9f2e6ca2194588dead17c36b6.jpg">Levuka (Ovalau Island)</option>
+                                    <option value="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/30/d7/bd/photo0jpg.jpg?w=900&h=-1&s=1">Yasawa Villages (Yasawa Island)</option>
+                                </select>
+                                <input name="activity" value="Culture, Villages" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-10" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="10" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <hr style="clear: both;">
+
+                        <div class="imageacti2">
+                            <img id="image-11" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti1">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Getting to know our people and products</h5>
+                                <p>Fiji markets are an overload on the senses and a great example of day to day in Fiji. When visiting a traditional 
+                                    marketplace in Fiji you’ll delight in complete sensory overload – the aromas of different herbs and spices, the 
+                                    sound of several languages being spoken at once, the sight of vibrant flowers and the freshest seafood straight 
+                                    from the ocean, plus the taste of the sweetest, fresh fruit and locally grown vegetables. Markets are also a 
+                                    great place to purchase locally made handicrafts. Or why not take some time out to people watch from one of the 
+                                    local restaurants or cafes flanking the market stalls. Enjoy a cup of Fijian tea and sweet cream bun and enjoy 
+                                    the passing parade as people go about their daily lives.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-11" number="11">
+                                    <option value="https://fijiguide.com/wp-content/uploads/2018/10/e62e60d06a6a2edc174abb377d2e16b5-1024x668-min.jpg">Nadi Produce Markets (Viti Levu)</option>
+                                    <option value="https://www.fijitimes.com/wp-content/uploads/2020/03/ROC-MARKET.jpg">ROC Market (Viti Levu)</option>
+                                    <option value="https://lh3.googleusercontent.com/-DMk8J2LN4BI/UjtJNFrXaMI/AAAAAAAAA3k/X8EK5KAdS9E/s800/Australia%2520and%2520Fiji%2520%2528Small%2520Camera%2529%2520Photos%2520%2528September%252007%252C%25202013%2529%2520-%2520IMG_1791%2520-%2520PROCESSED.jpg">Handicraft Market (Viti Levu)</option>
+                                    <option value="https://www.myfiji.com/wp-content/uploads/sites/20/2020/07/Fiji-Local-Markets1.jpg">Curio & Handicraft Market (Viti Levu)</option>
+                                    <option value="https://s3.ap-southeast-2.amazonaws.com/fiji.travlr.com/uploads/images/venue/e5c971c81ae7a5c7c71a9836af81c370.jpg">Lawai Pottery Village (Viti Levu)</option>
+                                </select>
+                                <input name="activity" value="Culture, Markets" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-11" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="11" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <hr style="clear: both;">
+
+                        <div class="imageacti1">
+                            <img id="image-12" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti2">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Cultural and historical landmarks</h5>
+                                <p>People have lived in the Fiji islands for thousands of years, and that rich history means a multitude of 
+                                    historically significant places to visit. Fiji is a fascinating nation to explore the history with tribal 
+                                    settlers, Tongan invasions, colonialism, military coups, colorful history of island explorers and more. As well as 
+                                    experiences to see centuries-old traditions still being played out, many of the historic monuments in Fiji can 
+                                    still be visited today. Seeing the monuments of Fiji will take you wide and far across the island nation, but even 
+                                    just seeing a few will blow your mind to how things used to be and how they influence Fiji today.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiiamge" class="selecting" id="select-12" number="12">
+                                    <option value="https://travel.fsetyt.com/wp-content/uploads/2019/03/46564.jpg">Sacred Heart Cathedral (Viti Levu)</option>
+                                    <option value="https://3.bp.blogspot.com/-p34B4Qb2adQ/WmqaZ6MNhBI/AAAAAAAA4-M/eL02KbDAlO4NngHPJJeT5_ToxQ39ZvLLQCLcBGAs/s1600/3_BT1G8T-1680x1050.jpg">Sri Siva Subramaniya Temple (Viti Levu)</option>
+                                    <option value="https://assets.ldscdn.org/ef/fb/effbc29d37dd209a83ad515dd951d9f76c3584f3/suva_fiji_temple_exterior.jpeg">Suva Fiji Temple (Viti Levu)</option>
+                                    <option value="https://i2.wp.com/www.martinainmotion.com/wp-content/uploads/2014/11/wpid-dsc_0863_1.jpg?ssl=1">Naag Mandir Temple (Vanua Levu)</option>
+                                    <option value="https://live.staticflickr.com/8774/17415013193_d4543274fb_b.jpg">Udre Udre's Grave (Viti Levu)</option>
+                                    <option value="https://www.travelonline.com/fiji/attractions/naihehe-cave/off-road-cave-naihehe-cave-39590-ws.jpg">Naihehe Caves (Viti Levu)</option>
+                                    <option value="http://ttnotes.com/images/hot-springs-savusavu-around.jpg">Savusavu Hot Springs (Vanua Levu)</option>
+                                    <option value="https://www.happinessandthings.com/wp-content/uploads/2016/01/DSC_0390.jpg">Tavuni Hill Fort (Viti Levu)</option>
+                                    <option value="http://fiji.revolucontent.com/files/2020/04/Fiji-VIP-Momi-Bay-Gun-Site-03-1024x768.jpg">Momi Bay Gun Site (Viti Levu)</option>
+                                    <option value="http://www.snorkelstosnow.com/wp-content/uploads/2017/02/PSWing-2-1024x768.jpg">B26 Bomber Wreck (Beachcomber Island)</option>
+                                </select>
+                                <input name="activity" value="Culture, Landmarks" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-12" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="12" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                            
+                        </div>
+
+                        <hr style="clear: both;">
+
+                        <div class="imageacti2">
+                            <img id="image-13" style="width: 100%; height: 100%;" src="">
+                        </div>
+                        <div class="descracti1">
+                            <form action="{% url 'activities' %}" method="POST">
+                                {% csrf_token %}
+                                <h5 style="font-weight: bold;">Visiting our beautiful cities</h5>
+                                <p>As bustling centres of culture, activities and city life, Fiji’s cities are well worth stopping by when on a road 
+                                    trip around the main islands, Viti Levu and Vanua Levu. Most cities in Fiji are on Viti Levu, which is Fiji’s 
+                                    largest island. With a wealth of shops, services and tours, some cities make a great base for exploring the real 
+                                    Fiji and its mix of cultures. In cities, you’ll meet Fijian and Indo-Fijians selling their wares in the commercial 
+                                    centres or using the city as their base for agricultural work.  The country has a well-documented economy with an 
+                                    abundance of natural resources like mineral, fish, and forests.</p>
+                                <label style="font-weight: bold;">Select a destination: </label>
+                                <select name="actiimage" class="selecting" id="select-13" number="13">
+                                    <option value="https://i.pinimg.com/originals/78/10/33/7810332cf707b8af89f154dbe9644b1b.jpg">Suva (Viti Levu)</option>
+                                    <option value="https://www.worldatlas.com/upload/cd/6e/e4/shutterstock-614659937.jpg">Nadi (Viti Levu)</option>
+                                    <option value="https://static.travelagewest.com/i/sized/780/437/www.cfmedia.vfmleonardo.com/imageRepo/5/0/93/413/227/Fiji_View_4_O.jpg">Denarau (Viti Levu)</option>
+                                    <option value="https://images0.westend61.de/0001076941pw/fiji-islands-lautoka-aerial-view-of-harbour-THAF02353.jpg">Lautoka (Viti Levu)</option>
+                                    <option value="https://upload.wikimedia.org/wikipedia/commons/b/b3/2019-01-28_Sigatoka%2C_Fiji_15.jpg">Sigatoka (Viti Levu)</option>
+                                </select>
+                                <input name="activity" value="Culture, Cities" type="hidden">
+                                <input name="actidestination" value="" id="actidestination-13" type="hidden">
+                                {% if user.is_authenticated %}
+                                <input id="hovering" des="13" style="margin-top: 1vh; cursor: pointer;" class="btn btn-outline-primary btn-block" type="submit" value="Add to wishlist">
+                                {% else %}
+                                <h6 style="color: red; margin-top: 2vh;">Log-in to add this activity to your wishlist</h6>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'fiji/activities.js' %}"></script>
+{% endblock %}

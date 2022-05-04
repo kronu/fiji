@@ -1,0 +1,1276 @@
+{% extends "fiji/layout.html" %}
+{% load static %}
+
+{% block title %}Choose Our Hotels &#10023;{% endblock %}
+
+{% block body %}
+
+{% if message %} 
+    <div class="message">{{message}}</div>
+{% endif %}
+
+<div style="width: 90%; margin: auto;">
+    <div class="hoteltitle">
+        <h1 class="titlecolor">Our hotel recommendations</h1>
+        <p>Explore the finest selection of top-notch accommodations in Fiji, chosen by our expert, including luxury hotels, boutique hotels and 
+            budget hotels.</p>
+    </div>
+
+    <div class="hotelflex">
+
+        <div class="hotelfilter">
+            <div style="position: sticky; top: 15vh;">
+                <div class="filterborder">
+                    <h5 style="padding: 2vh 0 0 2vh; font-weight: bold;">Filter:</h5>
+                    <hr style="border-top: 1px solid darkgray;">
+    
+                    <h6 class="filtercategory">Star Rating:</h6>
+                    <label class="container">
+                        <input id="three" class="check" type="checkbox">
+                        <span class="checkmark">3 stars</span>
+                    </label>
+                    <label class="container">
+                        <input id="four" class="check" type="checkbox">
+                        <span class="checkmark">4 stars</span>
+                    </label>
+                    <label class="container">
+                        <input id="five" class="check" type="checkbox">
+                        <span class="checkmark">5 stars</span>
+                    </label>
+    
+                    <hr style="border-top: 1px solid darkgray;">
+    
+                    <h6 class="filtercategory">Island:</h6>
+                    <label class="container">
+                        <input id="viti" class="check" type="checkbox">
+                        <span class="checkmark">Viti Levu</span>
+                    </label>
+                    <label class="container">
+                        <input id="vanua" class="check" type="checkbox">
+                        <span class="checkmark">Vanua Levu</span>
+                    </label>
+                    <label class="container">
+                        <input id="taveuni" class="check" type="checkbox">
+                        <span class="checkmark">Taveuni Island</span>
+                    </label>
+                    <label class="container">
+                        <input id="others" class="check" type="checkbox">
+                        <span class="checkmark">Others</span>
+                    </label>
+                    <div style="padding-bottom: 2vh"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="hotellist">
+
+            <!-- 3 STARS HOTELS -->
+
+            <div id="three others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/180244793.webp?k=640d4765b4704599e444f68b32d69e4498032f855d5a67e810c57e06e4506fb4&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/180257534.webp?k=1a98a71466e94a7ffabc51cb98f7844b3f432c179b9a8a198ad1acede5fda19b&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/180256205.webp?k=1b271cae66f01a4e596282d6a6f3a28c3cdcc4ca2b672edf5b981090cbf68a2a&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Coconut Beach Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Tavewa, Yasawa Island</small>
+                            <p>Set within a tropical garden of coconut palms and surrounded by turquoise water, Coconut beach Resort directly overlooks 
+                                the world famous Blue Lagoon in the Yasawa Islands. The resort has a beachfront bar and a dining room. Accommodations 
+                                options include Beachfront Bures and Garden View Bures. All rooms include a private bathroom, and towels and linen are 
+                                provided. You can engage in various activities, such as snorkeling, kayaking, hiking and fishing. Diving tours and 
+                                expeditions to the lime-stone caves can be arranged for guests. Evening entertainment is offered throughout the week, 
+                                and guests can enjoy many cultural activities and games.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/180256205.webp?k=1b271cae66f01a4e596282d6a6f3a28c3cdcc4ca2b672edf5b981090cbf68a2a&o=">
+                            <input name="wishname" type="hidden" value="Coconut Beach Resort">
+                            <input name="wishstars" type="hidden" value="3">
+                            <input name="wishlocation" type="hidden" value="Tavewa, Yasawa Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="three taveuni" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/8828522.webp?k=a7d4fb62b2ca55f9071f4888ec21736fc6fe59c6258b3820c3c6ae83fc8213b8&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/8828524.webp?k=4e22a1e7a16b848ce08e5c3a9e8bd9b3194e37e13a08a698423bcec796652387&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/8828501.webp?k=3f9c36b9495e4327df17c6f79ca16e1dd8ab0a05aea716caa722a76f5e1dd557&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Aroha Taveuni <span style="margin-left: 5px;">&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Waiyevo, Taveuni Island</small>
+                            <p>Aroha Taveuni Beachfront Bures is a 20-minute drive from Matei Airport (Taveuni Island Airport). Just yards from the beach, it features a 10 m infinity pool and free Wi-Fi access. Fitted with a private balcony, all rooms enjoy views of the beautiful Somosomo Strait.
+                                These modern guest rooms have a kitchen with stove, fridge and kitchenware. Each features a private bathroom and an outdoor shower with hot water. In-room massage services can be requested at a cost.
+                                The staff at the tour desk can assist in organizing diving trips and cultural tours around the village. There is an undercover barbecue area with seating. Free parking is provided on site.
+                                The property serves a daily continental breakfast. Dinner is available with a prior arrangement.
+                                Beachfront Bures Aroha Taveuni a 45-minute drive from the Blowhole and 22 mi from the Tavoro Falls. Lavena Coastal Walk is 25 mi away.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/8828522.webp?k=a7d4fb62b2ca55f9071f4888ec21736fc6fe59c6258b3820c3c6ae83fc8213b8&o=">
+                            <input name="wishname" type="hidden" value="Aroha Taveuni">
+                            <input name="wishstars" type="hidden" value="3">
+                            <input name="wishlocation" type="hidden" value="Waiyevo, Taveuni Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="three others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228533010.webp?k=b7a0c6c3fb06dfdca321a072eaa0a734b1aca98764409eb5e97dcd936fb652b8&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/193833938.webp?k=910e43a74c987dc4147562796dcd243853686e948dd4f8ecec0d77d5454e09fd&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228532600.webp?k=a2bc88cc2c46e0a432ecbee1cfa1ab27dc21570228ad8eed01d995e18aea0b37&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Oarsmans Bay Lodge Fiji <span style="margin-left: 5px;">&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Nacula Village, Nacula Island</small>
+                            <p>Oarsmans Bay Lodge offers accommodations in Nacula Island. Guests can enjoy the on-site restaurant and bar.
+                                
+                                Certain units include a seating area to relax in after a busy day. Some rooms feature views of the sea or garden. The rooms have a private bathroom.
+                                
+                                You will find a shared lounge at the property. Services available at the property include massage, and children's babysitting.
+                                
+                                A range of activities are offered in the area, such as snorkeling, diving and fishing trips. Guests can enjoy evening entertainment every night with dinner, as well as a range of evening activities.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228533010.webp?k=b7a0c6c3fb06dfdca321a072eaa0a734b1aca98764409eb5e97dcd936fb652b8&o=">
+                            <input name="wishname" type="hidden" value="Oarsmans Bay Lodge Fiji">
+                            <input name="wishstars" type="hidden" value="3">
+                            <input name="wishlocation" type="hidden" value="Nacula Village, Nacula Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="three vanua" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/88227541.webp?k=99fd63c2ffd8584dcd6ea28b2ad36b0ca54be1754578d267461ee75ccb1e1199&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/88227476.webp?k=55d843aad1fa10528d31a88d6521020e73e031a3ce54ee53339dc1f6b7a5b24c&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/91785721.webp?k=5b59afb5e4bbd8dacea847d5113913f7ad2342a235bf654f38eb607ed24dfc95&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Gecko Lodge Fiji <span style="margin-left: 5px;">&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Savusavu, Vanua Levu</small>
+                            <p>Offering free WiFi and free use of bicycles to explore the area, Gecko Lodge Fiji is located 3 minutes' drive from Savusavu town. Each air-conditioned room offers a patio and a TV. Shared facilities include a communal kitchen and a BBQ area.
+                                
+                                Gecko Lodge Fiji is 5 minutes' drive from Savusavu Airport and 5 minutes' walk from Savusavu Jetty.
+                                
+                                All studios include a refrigerator, a desk, a wardrobe and tea/coffee making facilities. Each room has a private bathroom with a shower.
+                                
+                                An array of activities can be enjoyed on site or in the surroundings, including snorkeling and kayaking. The property offers free parking.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/88227476.webp?k=55d843aad1fa10528d31a88d6521020e73e031a3ce54ee53339dc1f6b7a5b24c&o=">
+                            <input name="wishname" type="hidden" value="Gecko Lodge Fiji">
+                            <input name="wishstars" type="hidden" value="3">
+                            <input name="wishlocation" type="hidden" value="Savusavu, Vanua Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+
+            <div id="three viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/97702441.webp?k=16c0fc07089a2f31c602848a3c9f046832dd0c3700ed53ee4304772ae58aa76a&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/130468258.webp?k=a46e776872f4edd3c42178f1ffebac1448f8f887329388a03f2a3f4d6c1244de&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/130475397.webp?k=1e7cce0456ae6abc721c0994a1214243e85c46e53342dddcd89bf657cafe4822&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">The Palms Denarau Fiji <span style="margin-left: 5px;">&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Denarau, Viti Levu</small>
+                            <p>Featuring an on-site restaurant and an outdoor pool, The Palms Apartments offers self-contained accommodations with a fully equipped kitchen. Guests can enjoy a variety of local shops and restaurants within 5 minutes' walk. The property features a fitness center and a tour desk.
+                                
+                                The Palms Apartments are 15 minutes' walk from The Denarau Golf Club and 20 minutes' drive from Nadi International Airport. Port Denarau is located opposite the property.
+                                
+                                These spacious apartments are air-conditioned and feature a seating and dining area with a satellite TV. Some units include a balcony. All units feature a kitchenette equipped with a dishwasher and microwave. Each apartment is fitted with a private bathroom including a shower and free toiletries.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/97702441.webp?k=16c0fc07089a2f31c602848a3c9f046832dd0c3700ed53ee4304772ae58aa76a&o=">
+                            <input name="wishname" type="hidden" value="The Palms Denarau Fiji">
+                            <input name="wishstars" type="hidden" value="3">
+                            <input name="wishlocation" type="hidden" value="Denarau, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+
+            <div id="three vanua" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/206209167.webp?k=f9fc1459e3e7570d91549c401ac9534f06187a557f8e05272c9ab3d6027b5abf&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/206203644.webp?k=6eabe108d660f3ad64914dc5d180577903ac30c69d63c4b02aa475cbfe0813e1&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/206202185.webp?k=3d821ba53d9fb07a9269f7f29c935296e0af2509c52874018282ff2b8ba90a87&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Over The Horizon <span style="margin-left: 5px;">&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Savusavu, Vanua Levu</small>
+                            <p>Over The Horizon offers pet-friendly accommodations in Savusavu. It provides free private parking. Free WiFi is provided throughout the property.
+                                
+                                The kitchen is fitted with a microwave. A flat-screen TV is offered.
+                                
+                                Savusavu airport is just 6.2 mi from Over The Horizon.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/206203644.webp?k=6eabe108d660f3ad64914dc5d180577903ac30c69d63c4b02aa475cbfe0813e1&o=">
+                            <input name="wishname" type="hidden" value="Over The Horizon">
+                            <input name="wishstars" type="hidden" value="3">
+                            <input name="wishlocation" type="hidden" value="Savusavu, Vanua Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="three others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/205865868.webp?k=c84ed5d9fa51c094df151240275589da853ee0b3376729fb5f47ee915565ce84&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/205867366.webp?k=2bdac1e249728b20cda6597736eb052f1d68e100df4c857619511b9c92179f30&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/205870230.webp?k=fe145d2aa8cb268151f758b34304d04cfede341841b11370dab0d4e02140850c&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Beqa Lagoon Island Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Beqa Lagoon, Beqa Island</small>
+                            <p>Located on Beqa Island, this beachfront resort is surrounded by tropical gardens and offers a restaurant, a bar and swimming pool. Guests have free use of kayaks and can go diving on the lovely coral reef.
+                                
+                                Enjoy a massage or treatment at the open-air beachfront day spa or just relax on the sun terrace beside the pool. There is daily cultural activities and entertainment including Fijian dancing, fire walking and kava ceremonies.
+                                
+                                All bungalows are air conditioned and feature traditional island décor. Each has a marble bathroom, a refrigerator and tea/coffee making facilities. All beachfront bungalows have a private dipping pool.
+                                
+                                The poolside restaurant offers an à la carte menu using fresh local fish, New Zealand lamb and Australian beef. The Bula Bar serves a range of imported wine and beer, Fijian beer and cocktails.
+                                
+                                Beqa Lagoon Resort offers world class diving options including the famous shark and big fish encounter for an additional charge.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/205865868.webp?k=c84ed5d9fa51c094df151240275589da853ee0b3376729fb5f47ee915565ce84&o=">
+                            <input name="wishname" type="hidden" value="Beqa Lagoon Island Resort">
+                            <input name="wishstars" type="hidden" value="3">
+                            <input name="wishlocation" type="hidden" value="Beqa Lagoon, Beqa Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="three viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/28798435.webp?k=c5d058cb05e805a3d312b8ceb3ba0fb715a1e72f09b9c869d9b5b6f36fe47f5d&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/26927808.webp?k=b83f0d1b3f2f724e92a04c2ee3e58334d43b47bc133217dea43ba6e51312a868&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/194628700.webp?k=aa6c529a53555918ae66fc77d01cbc4031028f9d0557ab1a72c78c95674a2552&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Bedarra Beach Inn <span style="margin-left: 5px;">&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Korotogo, Viti Levu</small>
+                            <p>Set right on the lagoon in the heart of Fiji's Coral Coast, Bedarra Beach Inn is surrounded by lush gardens leading to the beachfront and provides a relaxing setting. It features the Talanoa cocktail bar, Ocean Terrace Restaurant and BBI Day Spa.
+                                
+                                The spacious rooms are complete with essential comforts and are serviced daily. They feature an private bathroom with a shower, air conditioning, ceiling fans and a balcony looking out over the immaculate gardens, pool area or the ocean. Standard rooms have a private courtyard.
+                                
+                                Bedarra Beach Inn Fiji is located 9.3 mi from Sigatoka Sand Dunes National Park and 12 mi from Sigatoka Valley. Nadi International Airport is 31 mi away.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/26927808.webp?k=b83f0d1b3f2f724e92a04c2ee3e58334d43b47bc133217dea43ba6e51312a868&o=">
+                            <input name="wishname" type="hidden" value="Bedarra Beach Inn">
+                            <input name="wishstars" type="hidden" value="3">
+                            <input name="wishlocation" type="hidden" value="Korotogo, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 4 STARS HOTELS -->
+
+            <div id="four taveuni" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/215155022.webp?k=3062dfeee9c631368371efd32644d3c3315f0b5e5af9c1f38b66eea0e37f82f2&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/215155017.webp?k=fc1f4160a8eb8cd6842d266d2eddfb3da7c52742a632cef6f0a42faae28123a2&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/215155012.webp?k=c19f96815bf6ad15c712f9149c0c322aa408d491c052ca3c449326c2f271bdf0&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Vakanananu Retreat <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Matei, Taveuni Island</small>
+                            <p>Located in Matei, Vakanananu Retreat has accommodations with a garden, free WiFi, a 24-hour front desk, and room service. Featuring free private parking, the villa is in an area where guests can engage in activities such as hiking and snorkeling.
+                                
+                                The villa features 1 bedroom, a fully equipped kitchen with a fridge and a stovetop, and 1 bathroom with a shower and free toiletries.
+                                
+                                à la carte and Full English/Irish breakfast options are available every morning at the villa.
+                                
+                                Vakanananu Retreat has a terrace. A car rental service is available at the accommodation.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/215155012.webp?k=c19f96815bf6ad15c712f9149c0c322aa408d491c052ca3c449326c2f271bdf0&o=">
+                            <input name="wishname" type="hidden" value="Vakanananu Retreat">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Matei, Taveuni Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="four others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/267789796.webp?k=748ca6801e99c3faf79b11fe4f5ea2f9aa3c46304bc1bac0051cdee61c285068&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/167305817.webp?k=7fe4431d9f874b7c532de082d3be5d245a1605d70462e94f15369a596396c43c&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/247788143.webp?k=489e5cbce7227418d925cc31d9220fc88bcce717be9f78c0715611abecb6cf40&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Oneta Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Ono Island, Ono Island</small>
+                            <p>Featuring a private beach and free use of snorkeling equipment and kayaks, Oneta Resort offers bungalows just yards from the blue waters of Astrolabe Reef. Guests enjoy included meals, free Wi-Fi, a bar and a restaurant.
+                                
+                                Located on a 50 acre property on Ono Island, this resort can be reached by a 40-minute flight from Nadi to Kadavu Island, followed by a 1 hour boat transfer.
+                                
+                                The Fijian-style bungalows are set among lovely tropical gardens and offer an private bathroom and a private outdoor hot water shower. Each bungalow includes wooden flooring, a fan, wardrobe and mosquito netting around the bed.
+                                
+                                There are comfortable hammocks throughout the resort, ideal for relaxing with a book and a cocktail. You can also enjoy a massage on site. The tour desk books fishing trips, snorkeling trips to the reef, island hiking excursions or sunset boat cruises to 1 of the main bird rookeries in Fiji.
+                                
+                                The restaurant serves a fusion of traditional Fijian cuisine and Italian dishes using organic vegetables and local produce. The bar offers a variety of beer, wine and spirits.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/247788143.webp?k=489e5cbce7227418d925cc31d9220fc88bcce717be9f78c0715611abecb6cf40&o=">
+                            <input name="wishname" type="hidden" value="Oneta Resort">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Ono Island, Ono Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="four vanua" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/133017257.webp?k=b60725879410a186eb6026f15bfcda6a848160af3a4dbe628f5fafb8b1037d8d&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/133017051.webp?k=187c6e69b6a21829287572509f18a4c00a09318635595d0b9a898cd291b3f57b&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/133017066.webp?k=073665d198edb0193b53bbafe752471a60b0a83c421b497a1441bcd313531f06&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">The Remote Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Nawi, Vanua Levu</small>
+                            <p>Featuring a secluded beach and a reef with abundant marine life, this exclusive private resort offers a choice of luxury villas with a large patio and a private plunge pool.
+                                
+                                Located on the edge of the Rainbow Reef, The Remote Resort is set opposite Taveuni Island. It is accessible from either a 20-minute boat ride from Taveuni or a 1-hour drive and 20-minute boat ride from Savusavu.
+                                
+                                Fiji Islands' Remote Resort offers snorkeling and kayaking options. Spa treatments are also available.
+                                
+                                Stylishly designed to blend in with the natural tropical surroundings, each villa features handcrafted wood furniture, an iPod docking station and a king-size bed with Egyptian cotton towels. Each has a spacious outdoor deck with a day bed.
+                                
+                                Private in-villa dining or dining at the Main Pavilion & Lounge is available.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/133017051.webp?k=187c6e69b6a21829287572509f18a4c00a09318635595d0b9a898cd291b3f57b&o=">
+                            <input name="wishname" type="hidden" value="The Remote Resort">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Nawi, Vanua Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="four viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/200751053.webp?k=4a3d83ffcc546cf4dbe2739b2f2d9c8491c632d6691740067652fcb68909401b&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/200749754.webp?k=7f8d85cc020d4ba5d99732725bce9c8d5bb9ae06939ad92726796e2281872489&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/200750934.webp?k=ab3aff9d295aa7f98b68e7b76f5969306f7f30399255d94264772610e2c31955&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Private Holiday House <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Tangangge, Viti Levu</small>
+                            <p>Featuring a patio, Private Holiday House is a vacation home, located in Tangangge.
+                                
+                                There is a seating area and a kitchen equipped with a dishwasher. A flat-screen TV is provided. Other facilities at Private Holiday House include an outdoor pool.
+                                
+                                Nadi Airport is 54.7 km away.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/200749754.webp?k=7f8d85cc020d4ba5d99732725bce9c8d5bb9ae06939ad92726796e2281872489&o=">
+                            <input name="wishname" type="hidden" value="Private Holiday House">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Tangangge, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="four others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/204363060.webp?k=e5a5734135744bcd1a43c93308ae40fc756320eb392b2502f0fec470295e5bcf&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/203194939.webp?k=fa74da315176ca7ff0679076afcdeaad69deee4f6115d769301b4e4d0054fcbb&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/203195080.webp?k=d905b6a0fd1a9f5821c6c8202a04385fa6977b3d6186258c72e29e394b3c5a0b&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Lomani Island Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Malolo Lailai, Malolo Lailai Islands</small>
+                            <p>Lomani Island Resort features a 7 km private beach, and has timber decks with spectacular ocean views. Guests enjoy free use of snorkeling equipment, bicycles, stand up paddle boards, windsurfers and glass bottomed kayaks. Facilities include a fitness center, billiards table, restaurant and a 33 m freshwater swimming pool.
+                                
+                                The air-conditioned guest rooms are fitted with a flat-screen TV, a DVD player and free DVD titles. The private bathroom offers free toiletries and a hairdryer.
+                                
+                                This adult-only resort (guests under 16 cannot be accommodated) offers cultural lessons such as coconut husking demonstration and basket weaving lessons. The property can help organize island hopping tours, surf trips to Wilkes Break, daily snorkeling trips, weekly dolphin safari tours and handline fishing trips.
+                                
+                                The renovated Flame Tree Restaurant & Bar offers an all-day dining option. In-room dining services are also available.
+                                
+                                Lomani Island Resort is a 45-minute drive from Malolo Cat (from Denarau Marina).
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/204363060.webp?k=e5a5734135744bcd1a43c93308ae40fc756320eb392b2502f0fec470295e5bcf&o=">
+                            <input name="wishname" type="hidden" value="Lomani Island Resort">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Malolo Lailai, Malolo Lailai Islands">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="four others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/250246520.webp?k=e75a01e582a298a3fff083b40dce097cc6dabefc4f52f357963af9e5212a238a&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/250246882.webp?k=20be61bec81d9a549e7a3d1114e89eceff69133296ebd9f140c465ced0c6bba7&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/250250657.webp?k=68c7ca614e8dfab95a24c12c36130123332eed94b80a802206e889cac1244ea6&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Navutu Stars Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Matayalevu, Yanggeta Island</small>
+                            <p>Navutu Stars Resort is the only boutique resort on the secluded island of Yaqeta, with just 9 beachfront bungalows spread along 3 pristine white-sand beaches. Continental breakfast is included each morning.
+                                
+                                Located just 60 nautical miles from Nadi International Airport, Navutu Stars Fiji Resort is a luxurious getaway in the archipelago of Yasawa, 40 nautical miles from Nadi.
+                                
+                                Free activities include snorkeling, fishing, kayaking and cultural activities. If you prefer to relax, there is a swimming pool surrounded by sun loungers, as well as hammocks on the beachfront.
+                                
+                                Guests can relax with a massage or beauty treatment at the day spa. You can dine on the restaurant’s main veranda under the stars by candlelight, or at a beautifully set table on your own private terrace. The resort can cater to specific dietary requirements. Meal packages are also available, if preferred.
+                                
+                                The resort offers spacious thatched-roof bungalows combining traditional Fijian architecture with modern luxury. Each includes a mini-bar, ceiling fans and a radio. Most bungalows have ocean views. Hairdryers and mosquito nets are available upon request.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/250250657.webp?k=68c7ca614e8dfab95a24c12c36130123332eed94b80a802206e889cac1244ea6&o=">
+                            <input name="wishname" type="hidden" value="Navutu Stars Resort">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Matayalevu, Yanggeta Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="four viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/21370336.webp?k=9605885655c623a85ede05cd732620a3341ed1cd05216894656b4f83abb1634f&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/21370323.webp?k=39ebfbadb4c04eaaf3b84cb7a1c00aedbf7a8f5d4d1f94d2b9dcb178688eeb1a&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/21370337.webp?k=7ba7d9a15220810a7827e0d2f6469a09f82fdc483e0b86ed762fcdcdec7cf6ef&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Bularangi Villa <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Rakiraki, Viti Levu</small>
+                            <p>Awake to lovely ocean views at Bularangi Villa Fiji, which offers a swimming pool and an oceanfront gazebo 'bure', perfect for entertaining. The 3-bedroom villa features 5 patios, a fully equipped kitchen and BBQ facilities.
+                                
+                                Located on the northernmost point of Viti Levu, Wananavu Bularangi Villa is a 5-minute boat ride from Nananu I Ra Island. Rakiraki and Volivoli Beach are both within a 20-minute drive.
+                                
+                                Surrounded by tropical gardens, the villa offers a spacious lounge area with a sofa, flat-screen TV and DVD player. The outdoor dining area offers BBQ facilities and comfortable outdoor furniture.
+                                
+                                The tour desk books diving classes, island tours, windsurfing and cultural village trips. You can also learn to cook local cuisine with an on-site cooking class.
+                                
+                                Enjoy free use of snorkeling gear, sun loungers and beach towels. The resort facilities of Wananavu Beach Resort are also available to guests. These include a bar, a restaurant and tennis court and kayaks.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/21370337.webp?k=7ba7d9a15220810a7827e0d2f6469a09f82fdc483e0b86ed762fcdcdec7cf6ef&o=">
+                            <input name="wishname" type="hidden" value="Bularangi Villa">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Rakiraki, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="four others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/105643545.webp?k=213f57c0624d4a9c0625decbd62f0d3a3f8db6c7972fd16b37a1415ce988ad43&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/151116396.webp?k=5f312df29b02de999a893162ba7d9d663efaf42d376c9f362ad57990bafff9ec&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/30772646.webp?k=e4650c05aa6e016f6a3ad05ea1c8bb4cb4185ce7fff5f1687f7d7018216e98f3&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Castaway Island <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Qalito Island, Mamanuca Islands</small>
+                            <p>This Fiji island resort offers an award-winning private island retreat, surrounded by white sand beaches, coral reefs and crystal clear waters. The resort offers 4 restaurants, free non-motorized water sports and a free kids club.
+                                
+                                Each of the spacious and traditionally thatched Fijian-style bungalows at Castaway Island has a refurbished private bathroom. Guests can choose to stay in a bungalow located directly on the beach.
+                                
+                                Free resort facilities include a tennis court, beach volleyball, canoeing, windsurfing, snorkeling and hobie catamarans. You can relax on the beach or in a hammock, or indulge yourself with a massage or body treatment.
+                                
+                                Overlooking the beach and ocean, the award-winning Restaurant 108 serves Asian, Fijian and Indian fusion cuisine. Water’s Edge Restaurant serves Fijian cuisine and sweeping ocean views. Sundowner Pizza Bar serves wood-fired pizzas and is located on the beach front. Nuku Marau Pool Bar & Grill is located by the pool.
+                                
+                                Castaway Island is located 17 mi from Denarau Island. It can be reached in 15 minutes by helicopter or seaplane from Nadi Airport.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/105643545.webp?k=213f57c0624d4a9c0625decbd62f0d3a3f8db6c7972fd16b37a1415ce988ad43&o=">
+                            <input name="wishname" type="hidden" value="Castaway Island">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Qalito Island, Mamanuca Islands">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="four taveuni" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/81646898.webp?k=9e33e138d281b6448e884963ab3b0a3c37faf6a5a6fa60229480a3fd39784a96&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/81646887.webp?k=c2c9c32e05801d417e196314d23f3981c43a1435fb751f34cdcc0b03d6973f6c&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/81646738.webp?k=dc826730d57629ae3249d2a8178c0227c5e47bb879b45653bbf30d65ad665e19&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Taveuni Dive Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Waiyevo, Taveuni Island</small>
+                            <p>Offering an outdoor pool and a restaurant, Taveuni Dove Resort is located near Soqulu, 5.6 mi from Waiyevo. Free WiFi access is available in this resort.
+                                
+                                The accommodations will provide you with a patio and a seating area. There is also a refrigerator. Featuring a shower, private bathroom also comes with a hairdryer. You can enjoy sea view from the room. Extras include a sofa, an outdoor seating area and bed linen.
+                                
+                                At Taveuni Dove Resort you will find a private beach area and a tennis court Other facilities offered at the property include grocery deliveries, water sports facilities and a shared lounge. An array of activities can be enjoyed on site or in the surroundings, including golfing, hiking and diving. The property offers free parking.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/81646887.webp?k=c2c9c32e05801d417e196314d23f3981c43a1435fb751f34cdcc0b03d6973f6c&o=">
+                            <input name="wishname" type="hidden" value="Taveuni Dive Resort">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Waiyevo, Taveuni Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="four viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/185844026.webp?k=757d694e36c8a1093d481452edea1b3465f4b38b267b6f13d8360c0abbfe0267&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/185842845.webp?k=5e10206f50b1d462939e9b753cafa735433e5cb0d7a6e045e480b3b7537e73da&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/185842733.webp?k=5b5f9f01b7cff8d095cb6803ae2ba349a5f35b8f945418df453b9a72ae45ea85&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Platinum Cawa Apartments <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Nadi, Viti Levu</small>
+                            <p>Boasting an outdoor swimming pool, a fitness center, and a garden, Platinum Cawa Apartments features accommodations in Nadi with free WiFi and garden views. This property offers a private pool and free private parking.
+
+                                The apartment has 2 bedrooms, a flat-screen TV with satellite channels, an equipped kitchen with a dishwasher and a microwave, a washing machine, and 2 bathrooms with a shower.
+                                
+                                The apartment offers a sun terrace.
+                                
+                                Wailoaloa Beach is 1.1 mi from Platinum Cawa Apartments, while Garden of the Sleeping Giant is 6.8 mi from the property. The nearest airport is Nadi International Airport, 1.9 mi from the accommodations. 
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/185842845.webp?k=5e10206f50b1d462939e9b753cafa735433e5cb0d7a6e045e480b3b7537e73da&o=">
+                            <input name="wishname" type="hidden" value="Platinum Cawa Apartments">
+                            <input name="wishstars" type="hidden" value="4">
+                            <input name="wishlocation" type="hidden" value="Nadi, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 5 STARS HOTELS -->
+
+            <div id="five others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/87487655.webp?k=ed916de14f73e12ff51b4c55942e680e54c4aaf221b8f1d52ab3784a023528c4&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/87491058.webp?k=98e8adfd12c7028e0cb58cf8e82b6a7da739b1c189b15e9648703e8b1b88bb39&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/88392408.webp?k=5a90badf4174982087889205f7615ec3f499ed9981e7eb1f35e84b51250d5013&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Likuliku Lagoon Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Malolo Island, Mamanuca Islands</small>
+                            <p>Featuring free WiFi, a year-round outdoor pool and a terrace, Likuliku Lagoon Resort offers adult only accommodations in Malolo, 18 mi from Nadi. Guests can enjoy the on-site restaurant.
+                                
+                                All rooms include a seating area to relax in after a busy day. For entertainment there is a flat-screen TV, DVD player and iPod dock. You will find a kettle in the room. Rooms have a private bathroom fitted with a shower. Extras include bathrobes, slippers and free toiletries.
+                                
+                                There is a 24-hour front desk, a shared lounge and gift shop at the property.
+                                
+                                Guests can enjoy various activities in the surroundings, including snorkeling and windsurfing. The nearest airport is Nadi International Airport, 20 mi from Likuliku Lagoon Resort.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/87487655.webp?k=ed916de14f73e12ff51b4c55942e680e54c4aaf221b8f1d52ab3784a023528c4&o=">
+                            <input name="wishname" type="hidden" value="Likuliku Lagoon Resort">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Malolo Island, Mamanuca Islands">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/150879105.webp?k=231dffff6791a1079b5dc46c411aef487fae4a678e32ba78344cea9af6b2c8b7&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/150883525.webp?k=4ac383ab68acefd86edfc15b8666b23dd98991a7a8d4761f89ab0fa531ab8aaa&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/150879588.webp?k=4e6ecf269dce9b80c2a462cf5bc28447e778f9749a11f7953d6574d6fd455099&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Tokoriki Island Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Tokoriki, Tokoriki Island</small>
+                            <p>Overlooking a sandy private beach, Tokoriki Island Resort features a day spa, an outdoor pool and 2 restaurants. It offers bures and villas with a private patio and amazing ocean views.
+                                
+                                The air-conditioned villas feature wooden floors and a private outdoor shower. Each villa has day beds and hammocks to relax in. All villas also feature a private pool.
+                                
+                                Tokoriki Island Resort Fiji is located on a secluded island 22 mi off the west coast of Nadi. Nadi International Airport is a 15-minute flight away, and Port Denarau is 1 hour away by boat.
+                                
+                                You can play a game of tennis, or enjoy a relaxing massage. The tour desk can arrange snorkeling, fishing and diving. The resort also has a gift shop and a 24-hour front desk.
+                                
+                                The Main restaurant offers South Pacific cuisine with an Asian influence, while Oishii Teppanyaki Restaurant specializes in Japanese cuisine. The open air bar features cocktails, wines and beers.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/150883525.webp?k=4ac383ab68acefd86edfc15b8666b23dd98991a7a8d4761f89ab0fa531ab8aaa&o=">
+                            <input name="wishname" type="hidden" value="Tokoriki Island Resort">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Tokoriki, Tokoriki Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/157945544.webp?k=46de89c60ebd9a299c1213e4504c3e969a037715838501d021774a952e45aa43&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/86388423.webp?k=17833a5f38ab6ed2d20e0ddb3fd415f66ae8dec402c0aac6f7da83ca53c7e8f3&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/86388425.webp?k=e398b45b42f95cc95676d8d7b7dff73b470dd7073ef8d6e252a4433ad06e6995&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Sea Winds Villa <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Sigatoka, Viti Levu</small>
+                            <p>Located along the Coral Coast of Fiji's main island of Viti Levu, Sea Winds Villa offers spacious accommodations which features views of the surrounding coral reef and Pacific Ocean. The property is just 6 minutes' walk from the beach, where you can enjoy snorkeling among the fish and coral, paddle-boarding or a kayak ride in the clear waters.
+                                
+                                The detached villa is set on a large elevated block and includes 4 large bedrooms, each with their own en suite and separate powder room. All bedrooms have stunning views of the ocean and private courtyards. The villa also features a kitchen, dining area, lounge area and office. There is also a butler’s pantry/laundry as well as surrounding terraces to relax on, an indoor/outdoor bar, a separate spacious terrace with a BBQ and a billiards table and dart board.
+                                
+                                Guests can also enjoy the massage room that has 2 massage beds, and an exercise bike, as well as the private salt water pool. There is a covered carport if you choose to hire a vehicle.
+                                
+                                The property also provides kayaks, paddle boards, snorkel gear, reef shoes and fishing rods for guests use. The house manager is on-call if needed.There are several secluded quiet spots on the property where you can escape and enjoy the tranquility of your surroundings.
+                                
+                                Nadi International Airport is 56 mi from Sea Winds Villa.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/86388425.webp?k=e398b45b42f95cc95676d8d7b7dff73b470dd7073ef8d6e252a4433ad06e6995&o=">
+                            <input name="wishname" type="hidden" value="Sea Winds Villa">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Sigatoka, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/202088611.webp?k=251e487132ad07ecea130f3a7968ad0de262c6fe7864a7c03123ac3ca0af926e&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/47836352.webp?k=4cbe620ff5577e90aad2f529ac89c209c891ebb3068f7a35d6fbea282fde14e1&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/140526407.webp?k=ee465955688dd759dc4e6dba6a7043bbb06bdc6dba4da688e1fd99b43fb52749&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Yasawa Island Resort & Spa <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Mbukama, Yasawa Island</small>
+                            <p>Set on one of Fiji's most remote islands and surrounded by 11 beaches, the Yasawa Island Resort offers stunning ocean views, a restaurant and day spa. All meals and non-alcoholic beverages are included.
+                                
+                                Guests can play tennis, relax by the pool or go snorkeling, windsurfing and kayaking. The Baravi Spa is located just feet from the water’s edge and showcases beautiful views from the massage deck.
+                                
+                                All accommodations at Yasawa Resort feature Fijian décor and a patio with ocean and beach views. A private open-air shower, secure lock-up drawer and a hammock are standard in all suites and bungalows.
+                                
+                                The restaurant serves a dining menu featuring locally-caught seafood. The chef can provide a picnic basket for private dining under the stars. You can enjoy poolside cocktails and free Wi-Fi at Manasa’s Bar.
+                                
+                                Yasawa Island is a 35-minute scenic flight from Nadi International Airport. It is then a 10-minute ride to Yasawa Island Resort & Spa by the resort’s shuttle service. You can contact Yasawa Island Resort & Spa directly to arrange a flight to the island.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/47836352.webp?k=4cbe620ff5577e90aad2f529ac89c209c891ebb3068f7a35d6fbea282fde14e1&o=">
+                            <input name="wishname" type="hidden" value="Yasawa Island Resort & Spa">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Mbukama, Yasawa Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/203703406.webp?k=d9a2a468d2ac71cfaa175d08ebb6b708c18952f7695202170f3f5fb9da3bdf36&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/203703415.webp?k=4e0b0de742a98b4ef5b75c6ec5d5cba315edab9410166849dc2f40a12ab37328&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/203703396.webp?k=fbdd9cdd9dd65c5162bd1874695158b8ddc86d308f9962c62ac284e3c5b1a9ba&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Vomo Island Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Vomo Island, Mamanuca Islands</small>
+                            <p>On a private island, Vomo Island Resort offers free non-motorized water sports (including snorkeling) and free access to the 9-hole golf course. All restaurant meals are included in the price.
+                                
+                                Vomo Island Resort Fiji is in the Mamanua Islands, a 15 minute helicopter or seaplane ride from Nadi International Airport. Guests receive a welcome gift of a bottle of wine and fruit basket.
+                                
+                                Each villa is air-conditioned and features a private patio with outdoor seating and views of the sea or gardens. Some villas have direct access to the beach. Private bathrooms have a whirlpool bathtub, slippers and bathrobes.
+                                
+                                For total relaxation, Vomo Spa offers a range of facials, hand and foot treatments, body treatments and couples packages. There is also a fully equipped fitness center, tennis court and kids club.
+                                
+                                Enjoy spectacular sunsets and free early evening appetizers from The Rocks Bar. Reef Restaurant overlooks the main swimming pool, while Vuda Bar has an open-air sitting area. Non-alcoholic beverages (including the minibar) are also included in the price.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/203703406.webp?k=d9a2a468d2ac71cfaa175d08ebb6b708c18952f7695202170f3f5fb9da3bdf36&o=">
+                            <input name="wishname" type="hidden" value="Vomo Island Resort">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Vomo Island, Mamanuca Islands">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/183179868.webp?k=8a2cb185ac1edeb330954aa2b6578c5548c048238a7801035605806fd8ce2e2d&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/90447791.webp?k=f81a8097b178d4965b4d798a525676a63e10eab8bd13d32b9812ecb67aae0195&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/181452144.webp?k=ad2c90432b970843095ec0691ab553c432c89b657e4cbaa1d93bf4e6db2cdf4e&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Radisson Blu Resort Fiji <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Denarau, Viti Levu</small>
+                            <p>Radisson Blu Resort Fiji is spread across 10 acres of pristine beachfront on Denarau Island and is surrounded by climate controlled lagoon style swimming pools, lush gardens and bordered by the Denarau 18 hole golf course. Nadi International Airport is 25 minutes' drive from the Resort.
+
+                                All 270 rooms at Radisson Blu Resort Fiji have private balconies or courtyards with modern furnishings. The suites boast a full kitchen, separate lounge and dining area as well as laundry facilities. 1-bedroom, 2-bedroom suites and guest rooms are available.
+                                
+                                Radisson Blu Fiji features four diverse restaurants as well as two specialty dining restaurants. One of the lagoon style swimming pools is adults only and there is a kids pool with a white water tunnel slide. For your children's entertainment there is the Blu Bananas kids club offering a range of activities.
+                                
+                                Guests enjoy free WiFi throughout the resort. Other resort features include the Harmony Retreat Day Spa, Evolution Fiji water sports, fitness center, Lai Lai Mini Mart including a bottle shop and Lobby Shop.
+                                
+                                Private car transfers are available to and from Nadi International Airport. These are charged FJD 45 each way. Please inform Radisson Blu Resort Fiji in advance if you want to use this service, using the contact details found on the booking confirmation. 
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/183179868.webp?k=8a2cb185ac1edeb330954aa2b6578c5548c048238a7801035605806fd8ce2e2d&o=">
+                            <input name="wishname" type="hidden" value="Radisson Blu Resort Fiji">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Denarau, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/89761556.webp?k=67e48bb44ef5ae81706c072ccbc5c944f3462392e2da23349bfac71933ee39f3&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/112354979.webp?k=566df0e4b97aea20f11b8c1498e94cf3b4dfab678993306917be3401d4506bfd&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/102910620.webp?k=658bc2222cee6482870d2ba39020fdde034264c1d42d3fa39780ad7fd4d48d86&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Fiji Marriot Resort Momi Bay <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Momi, Viti Levu</small>
+                            <p>Fiji Marriott Resort Momi Bay is an international luxury hotel located in Momi Bay, Fiji. The resort offers unrivaled lagoon and ocean views guest rooms including exclusive overwater Bure Villas, in a serene setting, providing you with an elegant, island-inspired experience.
+                                
+                                All rooms have a flat-screen TV, seating area where you can relax, and kettles in the room. Every room comes with a private bathroom. Extras include bathrobes and slippers.
+                                
+                                Highlights of this resort include 4 dining options, 3 large swimming pools, and private white-sand beach access. You can engage in various activities, such as a spa, health club, children's playground and water sports including snorkeling and diving.
+                                
+                                You will find a 24-hour front desk at the property.
+                                
+                                Nadi is 18 mi from Fiji Marriott Resort Momi Bay, while Denarau is 20 mi away. The nearest airport is Nadi Airport, 22 mi from the property.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/89761556.webp?k=67e48bb44ef5ae81706c072ccbc5c944f3462392e2da23349bfac71933ee39f3&o=">
+                            <input name="wishname" type="hidden" value="Fiji Marriot Resort Momi Bay">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Momi, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/253069708.webp?k=1fab78c050fc2f21a67750969ccae27a921f3e6f0b06a5afb62c819e1f3c85c6&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/287722048.webp?k=d600e2108e2a3af7d1f10507ab9186d62cd1c9c47ab0293afe5437c272541600&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/287722053.webp?k=87e6cbfe6315d9d3b74c46077f3ef4e4675afa58825c2917cc620b73997c021d&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">InterContinental Fiji Golf Resort & Spa <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Natadola, Viti Levu</small>
+                            <p>InterContinental Fiji Golf Resort & Spa is a luxurious resort nestled among lush tropical grounds. Located on the beachfront, it offers breathtaking views of Natadola Bay.
+                                
+                                All spacious rooms at Fiji Golf Resort & Spa feature a DVD player, a TV with Chinese TV channels, a mini-bar, kettle, bathrobe, bathtub, and hairdryer. Free morning newspapers are delivered to the room daily. Slippers and complimentary toothbrushes and toothpaste are included.
+                                
+                                Facilities include a 24-hour fitness center, 3 outdoor swimming pools, luxury spa and wellness center, children’s club and an 18-hole championship golf course. There are Chinese speaking staff members and Union Pay credit cards are accepted.
+                                
+                                The resort has 3 restaurants each offering a range of high-quality meals. Guests can dine by the pool, or overlooking either the gardens or the lagoon. There are also 2 bars serving cocktails and other drinks.
+                                
+                                InterContinental Fiji Golf Resort & Spa is a 40-minute drive from Nadi International Airport. The property offers transportation services in Chinese.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/287722053.webp?k=87e6cbfe6315d9d3b74c46077f3ef4e4675afa58825c2917cc620b73997c021d&o=">
+                            <input name="wishname" type="hidden" value="InterContinental Fiji Golf Resort & Spa">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Natadola, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five others" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/17349950.webp?k=bf5df4ba5b4b2cb86826dd43d2949731c56ca14727ffb722d52de6264f50df56&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/17349411.webp?k=ffc9ca3431113205fda8f65ce15a634034468726ef6cae47c335f0b9daa2198d&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/72184481.webp?k=0d0293351c1c6ea38aa2ff65dc6faf0d42de16fb249c6177057a766583dced16&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Tadrai Island Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>South Beach, Mana Island</small>
+                            <p>All meals, beverages and mini-bar items are included in your stay at this adults-only, all inclusive resort. Each elegantly designed, beachfront villa has private plunge pool and free WiFi. Airport transfers can be arranged on request.
+                                
+                                The villas at Tadrai Island Resort each come with a DVD player, premium bedding, a separate seating area and a furnished balcony or patio. There is air-conditioning, a ceiling fan, refrigerator, tea/coffee maker, Nespresso coffee machine with coffee pods, free bottled water and a mini-bar stocked with free items.
+                                
+                                Guests can enjoy an included meal for breakfast, lunch and gourmet dinner at Na Vatu Restaurant, overlooking the ocean as well as drinks at the bar and enjoy alfresco dining (weather permitting). Room service is available, during limited hours. Full breakfast is served each morning between 08:00 and 10:30.
+                                
+                                There are a range of activities in the surrounding areas, including snorkeling, sailing, scuba diving, kayaking, fishing, boat tours, village visits, picnics and hiking. Cooking classes are available on-site. All non-motorized water sports are free of charge to all guests.
+                                
+                                After a day of exploring you can treat yourself to a Tadrai Island Resort massage at the Wai Siliva Alfresco Spa 'beachfront bure'.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/17349411.webp?k=ffc9ca3431113205fda8f65ce15a634034468726ef6cae47c335f0b9daa2198d&o=">
+                            <input name="wishname" type="hidden" value="Tadrai Island Resort">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="South Beach, Mana Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/253291757.webp?k=36742ab6f08e5fa8b4faf56b3c2cbe18a8b631a1511b1283396d91ba7b054ad8&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/106582204.webp?k=009d1b85924eb13a9a3c4d15ea1b50379f99cbf8594113b5de6f993ab213bbe5&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/248791284.webp?k=d495ff6029deb08953ae8d7dfd51d32c49f631abfe49edebcbc9d4f0878cd78e&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Sheraton Denarau Villas <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Denarau, Viti Levu</small>
+                            <p>Boasting an infinity pool and landscaped gardens, Sheraton Denarau Villas is located just 1.2 mi from Denarau Marina. Free WiFi is available.
+                                
+                                Sheraton Denarau Villas is part of a 5 star resort complex and guests have access to shared facilities at The Westin Denarau Island Resort and Spa and Sheraton Fiji Resort, including 14 dining venues, 6 swimming pools, a spa, fitness studio, golf course, kids club and more.
+                                
+                                Guests can enjoy both motorized and free hire of non-motorized water sports equipment.
+                                
+                                Each beautifully styled villa is designed to reflect the beautiful lifestyle of Pacific Islands. All villas have laundry facilities, a dining setting and a fully equipped kitchen with a stovetop, refrigerator and dishwasher. Slippers and a complimentary dental kit are provided
+                                
+                                The property has a gym and a swim-up bar. Guests enjoy direct beach access and 24-hour room service.
+                                
+                                Denarau Villas Sheraton is adjacent to Denarau Golf & Racket Club. It is 4.3 mi from Nadi town and a 20-minute drive from Nadi International Airport.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/106582204.webp?k=009d1b85924eb13a9a3c4d15ea1b50379f99cbf8594113b5de6f993ab213bbe5&o=">
+                            <input name="wishname" type="hidden" value="Sheraton Denarau Villas">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Denarau, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five viti" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/34008079.webp?k=c65e4348d7a2eb760baac4369cb9f63a57af04ae79f11a8d613a9307c1066bbc&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/34011232.webp?k=3dea343118e62d02cbe71e46ac579a6a14d3c91eb1aa6720d46177a0f6bd1ba1&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/33413624.webp?k=cc831652606d098eeebc115ff992a2f97e73f1612596ca5309678c031891a9c2&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Grand Pacific Hotel <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Suva, Viti Levu</small>
+                            <p>Affectionately known as 'The Grand Old Lady' of Suva, the faithfully restored Grand Pacific Hotel was built in 1914. It features free WiFi, 5 restaurants, 3 bars, a day spa and a fitness center. All accommodations is air-conditioned and features a furnished patio or balcony.
+                                
+                                Set alongside Suva Harbor, the historic Suva Grand Pacific Hotel is opposite Parliament House. It is 5 minutes' walk from shops and local dining options. It is 100 m from the Fiji Museum and 3 minutes' walk from the Presidential Palace. Nausori Airport is 30 minutes' drive away.
+                                
+                                Set in manicured gardens, the hotel offers a 24-hour reception.Other amenities include various guest lounge areas, a ticket service and a tour desk. The property offers free parking
+                                
+                                Each room includes a flat-screen TV, ironing facilities, a mini bar, an in-room safe, a dining area and tea/coffee making facilities. Some rooms have a Nespresso coffee machine. All rooms offer a private bathroom with a shower, hairdryer and bathrobes.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/34008079.webp?k=c65e4348d7a2eb760baac4369cb9f63a57af04ae79f11a8d613a9307c1066bbc&o=">
+                            <input name="wishname" type="hidden" value="Grand Pacific Hotel">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Suva, Viti Levu">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="five taveuni" class="hotellisting">
+                <form action="{% url 'hotels' %}" method="POST">
+                    {% csrf_token %}
+                    <div style="padding: 30px;">
+                        <div style="display: flex;">
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/236070583.webp?k=414519799541d7fae136553dbc97b3b76fedd1ea9f87bfde5fbff2f35ce3dcd0&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/106377054.webp?k=d1a8be9a1dbac1b3e94343ba41e31f8010ca25868def6ea276b72b2fcbb4dfb5&o=">
+                            </div>
+                            <div style="flex: 30%; margin: 0 5px 0 5px;">
+                                <img style="width: 100%; height: auto;" src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/101161448.webp?k=b1a70f3866568b3df7a8f8b1906c3588d411519d5344da47740fcb8d9239aca7&o=">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2vh">
+                            <h4 style="font-weight: bold;">Taveuni Palms Resort <span style="margin-left: 5px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> </h4>
+                            <small>Matei, Taveuni Island</small>
+                            <p>Boasting a beautiful beachfront location, Taveuni Palms Resort offers luxurious self-contained villas each with a private swimming pool. Guests enjoy free daily breakfast, lunch and dinner, as well as a free 1-hour massage upon arrival.
+                                
+                                Taveuni Palms Resort is located on Taveuni Island. It is a 2-minute drive from Matei Airport, guests receive free return transfers.
+                                
+                                All air-conditioned villas boast a patio with stunning sea views. They offer free WiFi and use of an iPad. They have a fully equipped kitchen and indoor/outdoor dining areas.
+                                
+                                All villas feature 7 personal staff including a manager and 2 chefs. Your free meals include breakfast, lunch, 5-course dinner as well as nonalcoholic beverages. Housekeeping is twice daily.
+                                
+                                The property has a private beach where you can enjoy free snorkeling and kayaking. Diving, fishing and horse riding is available for an additional charge. There is also a spa and wellness center.
+                            </p>
+                            <input name="wishimage" type="hidden" value="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/236070583.webp?k=414519799541d7fae136553dbc97b3b76fedd1ea9f87bfde5fbff2f35ce3dcd0&o=">
+                            <input name="wishname" type="hidden" value="Taveuni Palms Resort">
+                            <input name="wishstars" type="hidden" value="5">
+                            <input name="wishlocation" type="hidden" value="Matei, Taveuni Island">
+                            {% if user.is_authenticated %}
+                            <input style="cursor: pointer;" class="btn btn-primary btn-lg btn-block" type="submit" value="Add to wishlist">
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'fiji/hotels.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,226 @@
+{% extends "fiji/layout.html" %}
+{% load static %}
+
+{% block title %}Events &#10023;{% endblock %}
+ 
+{% block body %}
+
+{% if message %} 
+    <div class="message">{{message}}</div>
+{% endif %}
+
+<div class="backgroundbanner" style="background-image: url('/static/fiji/fireworks.jpg');">
+    <div class="centralwhite" style="box-shadow: 0 0 0, 0 5px 5px 0 lightgray;">
+        <h1 class="titlecolor">Fijian Festivals and Events</h1>
+        <p style="margin-top: 2vh;">Fijian’s love a reason to celebrate. The island nation of Fiji is one of the most scenic destinations in the Pacific ocean with a 
+            distinct and beautiful coastal culture. The food, music, dance, and arts of this beautiful nation attract tourists from all over 
+            the world. The events and festivals in Fiji are celebrated with much fervor and joy as the natives are known for their 
+            playfulness and joviality. As a tourist, it is a treat to be a part of one of the local festivals as it offers a close and 
+            unhindered insight into the local way of living.</p>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://yourfijiguide.com/wp-content/uploads/2019/08/wyndham-resort-denaru-new-year-fireworks1.jpg">
+                <h2 style="padding-top: 3vh;">New Year's Eve (January 1st)</h2>
+                <p>The locals, however, welcome the new year with much passion, with celebrations lasting for a few days, and in some cases, even 
+                    a month. You will find traditional dance performances as well as people splashing each other with water, which is a way of 
+                    celebration over here. The grand street party and the fireworks are just a cherry on top, making Fiji one of the best places 
+                    to enjoy New Year’s Eve at.</p>
+                <input name="eventimage" value="https://yourfijiguide.com/wp-content/uploads/2019/08/wyndham-resort-denaru-new-year-fireworks1.jpg" type="hidden">
+                <input name="eventtitle" value="New Year's Eve (January 1st)" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://4.bp.blogspot.com/-2HuMc_Z0m_0/XHuRltMuVOI/AAAAAAAAR40/t16jq9-B3uIrvLmHxGEj7gtieIMKuCXIQCLcBGAs/s1600/Holi.jpg">
+                <h2 style="padding-top: 3vh;">Holi Festival (February/March)</h2>
+                <p>Holi is a popular ancient Hindu festival, also known as the "festival of spring", the "festival of colours" and the "festival of 
+                    love". The festival signifies the triumph of good over evil. Holi celebrates the arrival of spring, the end of winter, the 
+                    blossoming of love, and for many it's a festive day to meet others, play and laugh, forget and forgive, and repair broken 
+                    relationships. The festival also celebrates the beginning of a good spring harvest season.</p>
+                <input name="eventimage" value="https://4.bp.blogspot.com/-2HuMc_Z0m_0/XHuRltMuVOI/AAAAAAAAR40/t16jq9-B3uIrvLmHxGEj7gtieIMKuCXIQCLcBGAs/s1600/Holi.jpg" type="hidden">
+                <input name="eventtitle" value="Holi Festival (February/March)" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://fijipocketguide.com/wp-content/uploads/2020/04/100056-3-church-Credit-Mark-Snyder-Small-Mandatory-Credit-Tourism-Fiji.jpg">
+                <h2 style="padding-top: 3vh;">Easter (March/April)</h2>
+                <p>Easter is a Christian festival which celebrates the resurrection of Jesus Christ. The holiday falls on April 21 this year and 
+                    will be celebrated all across the globe. Easter is celebrated on the first Sunday following the full Moon that occurs on or 
+                    just after the spring equinox.</p>
+                <input name="eventimage" value="https://fijipocketguide.com/wp-content/uploads/2020/04/100056-3-church-Credit-Mark-Snyder-Small-Mandatory-Credit-Tourism-Fiji.jpg" type="hidden">
+                <input name="eventtitle" value="Easter (March/April)" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://img.traveltriangle.com/blog/wp-content/uploads/2018/11/fiji-festivals-cover.jpg">
+                <h2 style="padding-top: 3vh;">Bula Festival (July)</h2>
+                <p>The word Bula is used to greet (meaning hello or welcome) in the native tongue, making the festival one of the biggest tourist 
+                    attractions of the year. One of the most popular Fiji festivals, Bula is celebrated to honor the history and heritage of the 
+                    country. The festival is a mix of events covering everything from music, dance, local arts and culture, and other things. 
+                    Usually, the city of Nadi is flooded with local artists showcasing their talent. A parade inside Prince Charles Parks also 
+                    takes place, bringing locals and tourists together in the dance and celebrations.</p>
+                <input name="eventimage" value="https://img.traveltriangle.com/blog/wp-content/uploads/2018/11/fiji-festivals-cover.jpg" type="hidden">
+                <input name="eventtitle" value="Bula Festival (July)" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://www.fijitimes.com.fj/wp-content/uploads/2019/08/Vodafone-Festival-of-the-Friendly-North-contestants.-Picture-SUPPLIED-1.jpg">
+                <h2 style="padding-top: 3vh;">Friendly North Festival (August)</h2>
+                <p>On Fiji’s second largest island, Vanua Levu, one of the biggest events on the calendar is the Friendly North Festival. Running for 
+                    more than 40 years, the Friendly North Festival celebrates culture and history in Labasa, a mainly agricultural town of 
+                    Indo-Fijian people. Crowning the Queen of the North during the week-long festival, celebrations include a Bollywood Night, Pacific 
+                    Night, stalls and other performances to raise money for charities to benefit causes in the town. A way to promote tourism in the 
+                    island, this beautiful festival has people of Labasa come out in the streets and the famous Subrail Park.</p>
+                <input name="eventimage" value="https://www.fijitimes.com.fj/wp-content/uploads/2019/08/Vodafone-Festival-of-the-Friendly-North-contestants.-Picture-SUPPLIED-1.jpg" type="hidden">
+                <input name="eventtitle" value="Friendly North Festival (August)" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://archive.fbcnews.com.fj/news/2015/08/hibiscus-kicks-off_650x350.jpg">
+                <h2 style="padding-top: 3vh;">Hibiscus Carnival (August)</h2>
+                <p>Probably the biggest, and one of the oldest, celebration on the island, Hibiscus Festival Fiji is the most awaited time of the 
+                    year. Mainly a beauty pageant, the festival also covers different arts and cultural aspects of this Pacific island. Music, dance, 
+                    cafes, sports and local arts will be found in abundance during the festival. On the other hand, the crown of Miss Hibiscus sees 
+                    entrants come from different parts of the islands. This beautiful festival is a melange of everything Fijian culture stands for.</p>
+                <input name="eventimage" value="https://archive.fbcnews.com.fj/news/2015/08/hibiscus-kicks-off_650x350.jpg" type="hidden">
+                <input name="eventtitle" value="Hibiscus Carnival (August)" type="hidden">    
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://scontent-mxp1-1.xx.fbcdn.net/v/t31.0-8/20414099_1445555998854170_7146316367662925477_o.jpg?_nc_cat=105&ccb=3&_nc_sid=730e14&_nc_ohc=oW3jGuqR3fQAX_rm05C&_nc_ht=scontent-mxp1-1.xx&oh=2295987d0fd29db20ddcc66d47675604&oe=60609024">
+                <h2 style="padding-top: 3vh;">Costitution Day (September 7th)</h2>
+                <p>Constitution Day is a holiday to honor the constitution of Fiji. Constitution Day is celebrated on the anniversary of 
+                    the signing, promulgation or adoption of the constitution. Fiji's first constitution was in 1970 after it gained independence from 
+                    Britain.</p>
+                <input name="eventimage" value="https://scontent-mxp1-1.xx.fbcdn.net/v/t31.0-8/20414099_1445555998854170_7146316367662925477_o.jpg?_nc_cat=105&ccb=3&_nc_sid=730e14&_nc_ohc=oW3jGuqR3fQAX_rm05C&_nc_ht=scontent-mxp1-1.xx&oh=2295987d0fd29db20ddcc66d47675604&oe=60609024" type="hidden">
+                <input name="eventtitle" value="Costitution Day (September 7th)" type="hidden"> 
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+            
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://ptc.ac.fj/wp/wp-content/uploads/2020/05/71940516_2468878436530327_845661382497009664_o-1024x683.jpg">
+                <h2 style="padding-top: 3vh;">Fiji Day (October 10th)</h2>
+                <p>One of the most important events in Fiji history was the independence of the island from the colonial rule of the British in the 
+                    seventies. It is celebrated to commemorate the freedom of the island nation every year on 10th October. The festivities actually 
+                    last a week long in the central cities. Every part and town of the island celebrates the independence by organizing events on the 
+                    local level – from parades to various dance and singing performances as well as parties.</p>
+                <input name="eventimage" value="https://ptc.ac.fj/wp/wp-content/uploads/2020/05/71940516_2468878436530327_845661382497009664_o-1024x683.jpg" type="hidden">
+                <input name="eventtitle" value="Fiji Day (October 10th)" type="hidden"> 
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://www.fijivillage.com/news_images/9268103735b2422cac692b88922553.jpg">
+                <h2 style="padding-top: 3vh;">Mawlid - Prophet's Birthday (October)</h2>
+                <p>The birthday of Prophet Muhammad, also known as Mawlid, is being celebrated across the world. In some Muslim countries, 
+                    the day is a public holiday. The Prophet is revered by Muslims as the final messenger sent by God to spread the Abrahamic 
+                    faith to the world.</p>
+                <input name="eventimage" value="https://www.fijivillage.com/news_images/9268103735b2422cac692b88922553.jpg" type="hidden">
+                <input name="eventtitle" value="Mawlid - Prophet's Birthday (October)" type="hidden"> 
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="http://img-cdn.tid.al/m/1f200c0519c061a4a5ddfc9b8b4a9ad3ca228711.jpg">
+                <h2 style="padding-top: 3vh;">Diwali (October/November)</h2>
+                <p>Hindu "Festival of Lights", honours Lakshmi, the goddess of wealth and prosperity. The public holiday is a day of colour and 
+                    celebration amongst all of Fiji's races and creeds - not in its religious sense but for its festive and cultural aspects. 
+                    Hindus in Fiji usually open their homes to other families to share in the traditional sweets and foods of Diwali in Fiji. </p>
+                <input name="eventimage" value="http://img-cdn.tid.al/m/1f200c0519c061a4a5ddfc9b8b4a9ad3ca228711.jpg" type="hidden">
+                <input name="eventtitle" value="Diwali (October/November)" type="hidden"> 
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://www.magneticmag.com/.image/t_share/MTY5OTA3NDEzOTk3MDY5Njg5/yp-joel-11.jpg">
+                <h2 style="padding-top: 3vh;">BlueSky Fiji Music Festival (November 6th)</h2>
+                <p>BlueSky Fiji is an annual international R18 music festival held in Fiji. Bluesky Fiji was founded in 2012 and is known for 
+                    pioneering international music festivals in Fiji. The festival has helped establish other international music festivals in Fiji 
+                    including Spring Break Fiji.</p>
+                <input name="eventimage" value="https://www.magneticmag.com/.image/t_share/MTY5OTA3NDEzOTk3MDY5Njg5/yp-joel-11.jpg" type="hidden">
+                <input name="eventtitle" value="BlueSky Fiji Music Festival (November 6th)" type="hidden"> 
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'events' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://media-cdn.tripadvisor.com/media/photo-s/05/2f/a7/20/castaway-island-fiji.jpg">
+                <h2 style="padding-top: 3vh;">Christmas in Fiji (December 25th)</h2>
+                <p>Fijians traditionally celebrate Christmas with a huge lovo feast comprising garlic spice chicken, beef, pork, fish, cassava and 
+                    Dalo. Many resorts make a special lovo Christmas feast available for guests on Christmas Day. As with any Fijian celebration, 
+                    kava is an integral part of the Christmas festivities.</p>
+                <input name="eventimage" value="https://media-cdn.tripadvisor.com/media/photo-s/05/2f/a7/20/castaway-island-fiji.jpg" type="hidden">
+                <input name="eventtitle" value="Christmas in Fiji (December 25th)" type="hidden"> 
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

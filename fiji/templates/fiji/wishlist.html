@@ -1,0 +1,159 @@
+{% extends "fiji/layout.html" %}
+{% load static %}
+
+{% block title %}Your Wishlist &#10023;{% endblock %}
+
+{% block body %}
+<div class="wishdiv">
+    <div style="background-color: rgb(245, 245, 245); margin-bottom: 20px; padding-bottom: 5px;">
+        <h1 class="wishtitle">{{request.user}}'s wishlist</h1>
+        <p class="wishdescr1">Here is the best tour program made by... you!</p>
+        <p class="wishdescr2">Only you really know what you'd like to see during your holiday. So, we've given you all 
+            the power when it comes decision-making and let you explore on your own and surrounded by others like you, in order to make your 
+            experience so much better than anywhere else in the world.</p>
+    </div>
+    {% if flights %}
+        <div id="flighttotal" class="ticketcontainer">
+            <h4 class="tickettitle">Your next flight...</h4>
+            {% for flight in flights %}
+                <div class="ticket" id="flightticket-{{forloop.counter}}">
+                    <div class="ticketimage">
+                        <img style="width: 100%; height: 100%;" src="https://i.pinimg.com/originals/71/09/b5/7109b55759054116338b1e8c1bf88f38.jpg">
+                    </div>
+                    <div class="ticketflight">
+                        <p>From <b id="flightorigin-{{forloop.counter}}">{{ flight.flightorigin }}</b> to <b>{{flight.flightdestination}}</b></p>
+                        <p>Arrival: <b id="flightarrival-{{forloop.counter}}">{{flight.flightarrival}}</b>{% if flight.flightreturn %} - Return: <b id="flightreturn-{{forloop.counter}}">{{flight.flightreturn}}</b>{% endif %}</p>
+                        <p>Preferred: <b id="flightclass-{{forloop.counter}}">{{flight.flightclass}}</b></p>
+                        <p>Adults: <b id="flightadults-{{forloop.counter}}">{{flight.flightadults}}</b> - Children: <b id="flightchildren-{{forloop.counter}}">{{flight.flightchildren}}</b></p>
+                        <div id="deleteflight" num="{{forloop.counter}}" class="mobiledelete">
+                            <p>Delete this item</p>
+                        </div>
+                    </div>
+                    <div id="deleteflight" num="{{forloop.counter}}" class="ticketdelete">
+                        <div class="exit">
+                            <h1 style="color: white">x</h1>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if hotels %}
+        <div id="hoteltotal" class="ticketcontainer">
+            <h4 class="tickettitle">Your future favourite hotel...</h4>
+            {% for hotel in hotels %}
+                <div class="ticket" id="hotelticket-{{forloop.counter}}">
+                    <div class="ticketimage">
+                        <img style="width: 100%; height: 100%;" src="{{hotel.hotelimage}}">
+                    </div>
+                    <div class="tickethotel">
+                        <p>Name: <b id="hotelname-{{forloop.counter}}">{{hotel.hotelname}}</b></p>
+                        <p>Rating: <b>{{hotel.hotelstars}} stars</b></p>
+                        <p>Location: <b>{{hotel.hotellocation}}</b></p>
+                        <div id="deletehotel" num="{{forloop.counter}}" class="mobiledelete">
+                            <p>Delete this item</p>
+                        </div>
+                    </div>
+                    <div id="deletehotel" num="{{forloop.counter}}" class="ticketdelete">
+                        <div class="exit">
+                            <h1 style="color: white">x</h1>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if activities %}
+        <div id="actitotal" class="ticketcontainer">
+            <h4 class="tickettitle">How you'll spend your time...</h4>
+            {% for activity in activities %}
+                <div class="ticket" id="actiticket-{{forloop.counter}}">
+                    <div class="ticketimage">
+                        <img style="width: 100%; height: 100%;" src="{{activity.actiimage}}">
+                    </div>
+                    <div class="ticketactivity">
+                        <p>Activity: <b id="actiname-{{forloop.counter}}">{{activity.activity}}</b></p>
+                        <p>Location: <b>{{activity.actidestination}}</b></p>
+                        <div id="deleteacti" num="{{forloop.counter}}" class="mobiledelete">
+                            <p>Delete this item</p>
+                        </div>
+                    </div>
+                    <div id="deleteacti" num="{{forloop.counter}}" class="ticketdelete">
+                        <div class="exit">
+                            <h1 style="color: white">x</h1>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if events %}
+        <div id="eventtotal" class="ticketcontainer">
+            <h4 class="tickettitle">The things you'll experience...</h4>
+            {% for event in events %}
+                <div class="ticket" id="eventticket-{{forloop.counter}}">
+                    <div class="ticketimage">
+                        <img style="width: 100%; height: 100%;" src="{{event.eventimage}}">
+                    </div>
+                    <div class="ticketevent">
+                        <p>Event: <b id="eventtitle-{{forloop.counter}}">{{event.eventtitle}}</b></p>
+                        <div id="deleteevent" num="{{forloop.counter}}" class="mobiledelete">
+                            <p>Delete this item</p>
+                        </div>
+                    </div>
+                    <div id="deleteevent" num="{{forloop.counter}}" class="ticketdelete">
+                        <div class="exit">
+                            <h1 style="color: white">x</h1>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if foods %}
+        <div id="foodtotal" class="ticketcontainer">
+            <h4 class="tickettitle">The food you'll taste...</h4>
+            {% for food in foods %}
+                <div class="ticket" id="foodticket-{{forloop.counter}}">
+                    <div class="ticketimage">
+                        <img style="width: 100%; height: 100%;" src="{{food.foodimage}}">
+                    </div>
+                    <div class="ticketevent">
+                        <p>Food: <b id="foodtitle-{{forloop.counter}}">{{food.foodtitle}}</b></p>
+                        <div id="deletefood" num="{{forloop.counter}}" class="mobiledelete">
+                            <p>Delete this item</p>
+                        </div>
+                    </div>
+                    <div id="deletefood" num="{{forloop.counter}}" class="ticketdelete">
+                        <div class="exit">
+                            <h1 style="color: white">x</h1>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% if not flights and not hotels and not activities and not events and not foods %}
+    <div style="text-align: center; margin-top: 25px;">
+        <h4 style="font-weight: bold;">It seems that your wishlist is empty...</h4>
+    </div>
+    <div class="shrug">
+        <img style="width: 100%; height: 100%;" src="https://image.emojipng.com/892/339892.png">
+    </div>
+{% endif %}
+
+<div id="appear" style="display: none;">
+    <div style="text-align: center; margin-top: 25px;">
+        <h4 style="font-weight: bold;">It seems that your wishlist is empty...</h4>
+    </div>
+    <div class="shrug">
+        <img style="width: 100%; height: 100%;" src="https://image.emojipng.com/892/339892.png">
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'fiji/wishlist.js' %}"></script>
+{% endblock %}

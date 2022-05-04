@@ -1,0 +1,204 @@
+{% extends "fiji/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="indeximg1">
+    <div class="mySlides fade">
+        <img style="width: 100%; height: 100%;" src="https://www.mctv.com.au/wp-content/uploads/2017/02/Fiji.png">
+    </div>
+    <div class="mySlides fade">
+        <img style="width: 100%; height: 100%;" src="https://wallpaperaccess.com/full/326601.jpg">
+    </div>
+    <div class="mySlides fade">
+        <img style="width: 100%; height: 100%;" src="https://cdn.hipwallpaper.com/i/32/54/G3uaUo.jpg">
+    </div>
+    <div class="mySlides fade">
+        <img style="width: 100%; height: 100%;" src="https://i.pinimg.com/originals/a0/56/51/a056513c02fdf474770dbfa70b77e353.jpg">
+    </div>
+    <div style="width: 50%; margin: auto;">
+        <h1 class="title">Welcome!</h1>
+    </div>
+    <a id="prev" class="prev">&#10094;</a>
+    <a id="next" class="next">&#10095;</a>
+</div>
+
+<div style="display: flex;">
+    <div style="flex: 0;">
+        <div class="weather">
+            <div style="position: sticky; top: 13vh">
+                <a id="goodbye" class="weatherwidget-io" href="https://forecast7.com/en/n18d12178d45/suva/" data-label_1="SUVA" data-font="Ubuntu" 
+                data-icons="Climacons Animated" data-days="7" data-theme="original" data-basecolor="#002D62" data-cloudfill="#dfdede"
+                data-highcolor="#FF6347" data-lowcolor="#AFEEEE">SUVA</a>
+                <script>
+                !function(d,s,id) {
+                    var js,fjs=d.getElementsByTagName(s)[0];
+                    if(!d.getElementById(id)){
+                        js=d.createElement(s);js.id=id;
+                        js.src='https://weatherwidget.io/js/widget.min.js';
+                        fjs.parentNode.insertBefore(js,fjs);
+                    }
+                }(document,'script','weatherwidget-io-js');
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="indexflex">
+        <div class="indexfirst">
+            <div class="videoleft">
+                <iframe class="iframevideo" src="https://www.youtube.com/embed/THytseg3X_c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="description">
+                <h1 class="titles">Bula!</h1>
+                <h3 class="titles" style="margin-top: -1vh;">Welcome to Fiji!</h3>
+                <p style="font-weight: bold; margin-top: 2vh;">Get ready to experience some of the most breath-taking vistas in the world!</p>
+                <p>As we welcome in a new year, it’s time to start dreaming of better days ahead. If you plan to dive headlong 
+                    into an overseas adventure, Fiji should be right up there on your shortlist. Fiji is quite unlike anywhere else on Earth. 
+                    It’s like a 'greatest hits' of the world’s most spectacular experiences – all in one place. Either you're looking for adventure 
+                    or relaxation, our palm-fringed beaches, thriving coral reefs, turquoise lagoons and sun-drenched islands await you.</p>
+            </div>
+            <div class="tapabanner">
+            </div>
+        </div>
+
+
+        <div class="indexsecond">
+            <h1 class="divide">Start planning your stay now</h1>
+            <div class="dividecontainer">
+                <div class="imagecontainer" style="background: url('https://images.all-free-download.com/images/graphiclarge/fly_the_aircraft_05_hd_pictures_168622.jpg') 50% 50% no-repeat; background-size: cover; margin: 0 2vw 0 2vw;">
+                    <a class="linkimage" href="{% url 'flights' %}">
+                        <div class="textlink">Find flights</div>
+                    </a>
+                </div>
+                <div class="imagecontainer" style="background: url('https://cdn.galaxy.tf/unit-media/tc-group/uploads/images/hotel_photo/001/559/579/nadi-pool-at-warwick-fiji.jpg') 50% 50% no-repeat; background-size: cover; margin: 0 1vw 0 1vw;">
+                    <a class="linkimage" href="{% url 'hotels' %}">
+                        <div class="textlink">Find hotels</div>
+                    </a>
+                </div>
+                <div class="imagecontainer" style="background: url('https://blog.goway.com/globetrotting/wp-content/uploads/2015/10/Underwater-World-Fiji.jpg') 50% 50% no-repeat; background-size: cover; margin: 0 2vw 0 2vw;">
+                    <a class="linkimage" href="{% url 'activities' %}">
+                        <div class="textlink">Things to do</div>
+                    </a>
+                </div>
+            </div>
+
+            <div style="padding: 3vh;"></div>
+
+            <div class="dividecontainer">
+                <div class="imagecontainer" style="background: url('https://ichef.bbci.co.uk/images/ic/1200xn/p073zc9m.jpg') 50% 50% no-repeat; background-size: cover; margin: 0 2vw 0 2vw;">
+                    <a class="linkimage" href="{% url 'events' %}">
+                        <div class="textlink">Festivals & Events</div>
+                    </a>
+                </div>
+                <div class="imagecontainer" style="background: url('https://t-cf.bstatic.com/images/hotel/max1024x768/150/150884298.jpg') 50% 50% no-repeat; background-size: cover; margin: 0 1vw 0 1vw;">
+                    <a class="linkimage" href="{% url 'food' %}">
+                        <div class="textlink">Food</div>
+                    </a>
+                </div>
+                <div class="imagecontainer" style="background: url('https://www.worldmapstore.com/wp-content/uploads/2020/07/FIJI-600x600.jpg') 50% 50% no-repeat; background-size: cover; margin: 0 2vw 0 2vw;">
+                    <a class="linkimage" href="{% url 'help' %}">
+                        <div class="textlink">Guide</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="indexthird">
+            <h1 style="color: steelblue; font-weight: bold;">Do you already know where to go?</h1>
+            <div class="indexleftdiv">
+                <h4>Search your destination</h4>
+                <form autocomplete="off">
+                    <div class="containsearchbar">
+                        <input id="searchDestinations" name="searchDestinations" class="searchbar" type="text" placeholder="Type to search...">
+                    </div>
+                    <button id="submitButton" class="btnsearch btn-primary icon" type="button">Search</button>
+                </form>
+                <br>
+                <ul class="nav nav-tabs nav-fill choosecategory" id="myTab" role="tablist">
+                    <li class="nav-item" id="changing">
+                        <a class="nav-link" id="sport-tab" data-toggle="tab" href="#sport" role="tab" aria-controls="sport" aria-selected="false">Sport</a>
+                    </li>
+                    <li class="nav-item" id="changing">
+                        <a class="nav-link" id="nature-tab" data-toggle="tab" href="#nature" role="tab" aria-controls="nature" aria-selected="false">Nature</a>
+                    </li>
+                    <li class="nav-item" id="changing">
+                        <a class="nav-link" id="culture-tab" data-toggle="tab" href="#culture" role="tab" aria-controls="culture" aria-selected="false">Culture</a>
+                    </li>
+                    <li class="nav-item" id="changing">
+                        <a class="nav-link active" id="cities-tab" data-toggle="tab" href="#cities" role="tab" aria-controls="cities" aria-selected="true">Cities</a>
+                    </li>
+                </ul>
+                <div class="tab-content bigwrap" id="myTabContent">
+                    <div class="tab-pane fade smallwrap" id="sport" role="tabpanel" aria-labelledby="sport-tab">
+                        <img style="width: 100%; height: 100%;" src="https://www.myfiji.com/wp-content/uploads/sites/20/2017/06/MF_My-Fiji_Website-Images_surfing.jpg">
+                    </div>
+                    <div class="tab-pane fade smallwrap" id="nature" role="tabpanel" aria-labelledby="nature-tab">
+                        <img style="width: 100%; height: 100%;" src="https://beingexpat.com/wp-content/uploads/2017/10/20.jpg">
+                    </div>
+                    <div class="tab-pane fade smallwrap" id="culture" role="tabpanel" aria-labelledby="culture-tab">
+                        <img style="width: 100%; height: 100%;" src="https://static.givealittle.co.nz/assets/hero/3558ceee-e490-4627-8a9d-a926015825f1-800">
+                    </div>
+                    <div class="tab-pane fade smallwrap show active" id="cities" role="tabpanel" aria-labelledby="cities-tab">
+                        <img style="width: 100%; height: 100%;" src="https://educationabroadnetwork.org/wp-content/uploads/2019/09/Suva-Media-1-min.png">
+                    </div>
+                </div>
+            </div>
+            <div class="indexrightdiv">
+                <div class="bigwrap">
+                    <div class="fade mapimg hidden" id="sport2">
+                        <img style="width: 100%; height: 100%;" src="{% static 'fiji/sport.jpg' %}">
+                    </div>
+                    <div class="fade mapimg hidden" id="nature2">
+                        <img style="width: 100%; height: 100%;" src="{% static 'fiji/nature.jpg' %}">
+                    </div>
+                    <div class="fade mapimg hidden" id="culture2">
+                        <img style="width: 100%; height: 100%;" src="{% static 'fiji/culture.jpg' %}">
+                    </div>
+                    <div class="fade mapimg active" id="cities2">
+                        <img style="width: 100%; height: 100%;" src="{% static 'fiji/cities.jpg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="infodiv">
+    <div style="display: flex;">
+        <div class="columndiv">
+            <p class="categorydescr">INFO & SERVICES</p>
+            <a class="objectcategory" href="{% url 'activities' %}">Visit Fiji</a><br>
+            <a class="objectcategory" href="{% url 'hotels' %}">Find an hotel</a><br>
+            <a class="objectcategory" href="https://www.fiji.travel/" id="goodbye">Contact Us</a><br>
+            <a class="objectcategory" href="{% url 'aboutus' %}">About Us</a>
+        </div>
+        <div class="columndiv">
+            <p class="categorydescr">OUR SOCIAL MEDIA</p>
+            <a class="objectcategory" href="https://www.facebook.com/Fiji/" id="goodbye">Facebook</a><br>
+            <a class="objectcategory" href="https://twitter.com/tourismfiji?lang=en" id="goodbye">Twitter</a><br>
+            <a class="objectcategory" href="https://www.youtube.com/user/FijiTourism" id="goodbye">YouTube</a><br>
+            <a class="objectcategory" href="https://www.instagram.com/tourismfiji/?hl=en" id="goodbye">Instagram</a>
+        </div>
+        <div class="columndiv">
+            <p class="categorydescr">YOU MAY ALSO LIKE</p>
+            <a class="objectcategory" href="https://www.newzealand.com/int/" id="goodbye">New Zealand</a><br>
+            <a class="objectcategory" href="https://www.vanuatu.travel/au/" id="goodbye">Navuatu</a><br>
+            <a class="objectcategory" href="https://www.timelesstuvalu.com/" id="goodbye">Tuvalu</a><br>
+            <a class="objectcategory" href="http://www.tongaholiday.com/" id="goodbye">Tonga</a>
+        </div>
+    </div>
+    <p class="endwarning">
+        This website was built solely for the purpose of implementing a dynamic website about something I'm passionate about, and to be 
+        submitted as the last project of the CS50W course provided by HardardX. This website is and will be purely used only as a project 
+        for the previously mentioned online course, and it will not be released to the public as not to deceive or scam people. This 
+        website was not by any means requested by the Republic of Fiji, therefore it is not an official website. If you are genuinally 
+        interested in Fiji's official travel website, please click <a href="https://www.fiji.travel/" id="goodbye">here</a>.
+    </p>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'fiji/index.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "fiji/layout.html" %}
+{% load static %}
+
+{% block title %}Flights &#10023;{% endblock %}
+
+{% block body %}
+    {% if message %} 
+    <div class="message">{{message}}</div>
+    {% endif %}
+
+    <div class="flightsdiv">
+        <h1 class="flighttitle">Fly over for your perfect holiday...</h1>
+        <h6 class="flightdescr">Nadi International Airport welcomes more than 2.1 million international passengers and close to 300,000 domestic 
+            passengers annually. We also provide an international standard shopping and dining experience for both international and domestic 
+            travellers.</h6>
+        <br>
+        <div class="flightcontainer">
+            <div id="one" class="flightchoose">
+                <h4 style="font-weight: bold;">One Way</h4>
+            </div>
+            <div id="two" class="nope">
+                <h4 style="font-weight: bold;">Round Trip</h4>
+            </div>
+            <div class="flightbackground">
+                <form id="myForm" autocomplete="off" action="{% url 'flights' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="flightplace1">
+                        <p style="text-align: left; margin-bottom: 0;">From</p>
+                        <div>
+                            <input name="flightorigin" id="from" style="width: 100%; padding: 5px 10px;" type="search" placeholder="Origin" required>
+                        </div>
+                    </div>
+                    <div class="flightplace2">
+                        <p style="text-align: left; margin-bottom: 0;">To</p>
+                        <input name="flightdestination" id="to" style="width: 100%; padding: 5px 10px;" type="search" value="Nadi (NAN), Fiji" readonly>
+                    </div>
+                    <div class="flightdepart1">
+                        <p style="text-align: left; margin-bottom: 0;">Depart</p>
+                        <input name="flightarrival" id="depart" style="width: 100%; padding: 5px 10px;" type="date" min="" max="" required>
+                    </div>
+                    <div class="flightreturn">
+                        <p style="text-align: left; margin-bottom: 0;">Return</p>
+                        <input name="flightreturn" id="return" style="width: 100%; padding: 5px 10px;" type="date" min="" disabled>
+                    </div>
+                    <div class="flightdepart2">
+                        <p style="text-align: left; margin-bottom: 0;">Class</p>
+                        <select name="flightclass" id="class" style="width: 100%; padding: 8px 10px;">
+                            <option>Economic Class</option>
+                            <option>Business Class</option>
+                            <option>First Class</option>
+                            <option>Private Jet</option>
+                        </select>
+                    </div>
+                    <div class="flightdepart1">
+                        <p style="text-align: left; margin-bottom: 0;">Adults</p>
+                        <input name="flightadults" id="adults" style="width: 100%; padding: 5px 10px;" type=number min=1 max=10 value="1">
+                    </div>
+                    <div class="flightreturn">
+                        <p style="text-align: left; margin-bottom: 0;">Children</p>
+                        <input name="flightchildren" id="children" style="width: 100%; padding: 5px 10px;" type=number min=0 max=10 value="0">
+                    </div>
+                    <div class="flightdepart2">
+                        <p style="text-align: left; margin-bottom: 0;" hidden>.</p>
+                        <button id="wishButton" type="submit" class="btn flightbutton" {% if not user.is_authenticated %}disabled{% endif %}>Add to wishlist</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'fiji/flights.js' %}"></script>
+{% endblock %}

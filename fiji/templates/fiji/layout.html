@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Discover Fiji &#10023;{% endblock %}</title>
+        <link rel="shortcut icon" type="image/jpg" href="https://cdn4.iconfinder.com/data/icons/flat-circle-flag/182/circle_flag_fiji-512.png"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'fiji/styles.css' %}">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top">
+            <a class="navbar-brand" style="width: 5vw; min-width: 45px;" href="{% url 'index' %}">
+                <img style="width: 100%;" src="https://pbs.twimg.com/profile_images/1242238874144796672/QkyY62Sm_400x400.jpg">
+            </a>
+            <button class="navbar-toggler collapsebtn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-toggler-icon"><img style="width: 30px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png"></span>
+            </button>
+
+            <div style="margin-left: -10px;" class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto nav">
+                    <li class="nav-item">
+                        <a class="nav-link alinavbar" href="{% url 'flights' %}">FLIGHTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link alinavbar" href="{% url 'hotels' %}">ACCOMODATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link alinavbar" href="{% url 'activities' %}">THINGS TO DO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link alinavbar" href="{% url 'events' %}">EVENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link alinavbar" href="{% url 'food' %}">OUR CUISINE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link alinavbar" href="{% url 'help' %}">HELP</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link alinavbar" href="{% url 'wishlist' request.user %}" id="myname">{{request.user}}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link alinavbar" href="{% url 'register' %}">REGISTER</a>
+                        </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link alinavbar" href="{% url 'logout' %}">LOG-OUT</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link alinavbar" href="{% url 'login' %}">LOG-IN</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <div class="searchlens">
+                    <a href="{% url 'search' %}"><img style="width: 100%;" src="https://www.iconsdb.com/icons/preview/navy-blue/active-search-2-xxl.png"></a>
+                </div>
+            </div>
+        </nav>    
+          
+        {% block body %}
+        {% endblock %}
+        {% block script %}
+        {% endblock %}
+    </body>
+</html>

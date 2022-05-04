@@ -1,0 +1,23 @@
+{% extends "fiji/layout.html" %}
+{% load static %}
+
+{% block title %}Search &#10023;{% endblock %}
+
+{% block body %}
+    <div class="one">
+            <div class="two">
+                <div style="width: 80%;">
+                    <h1 class="helper">What are you looking for?</h1>
+                    <form id="searchhid" class="three" autocomplete="off">
+                        <input class="four five" id="search" type="search" placeholder="Type here..." autofocus required>
+                        <button id="searchButton" class="four six" type="button">Go</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'fiji/search.js' %}"></script>
+{% endblock %}

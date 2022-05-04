@@ -1,0 +1,31 @@
+{% extends "fiji/layout.html" %}
+{% load static %}
+
+{% block title %}Log-In &#10023;{% endblock %}
+
+{% block body %}
+<div style="margin: 25vh 0 18vh 0;">
+    <div style="margin: auto; width: 50%;">
+        <h1 style="margin-bottom: 3vh;">Log-In</h1>
+
+        {% if message %}
+            <div style="color: red;">{{ message }}</div>
+        {% endif %}
+
+        <form action="{% url 'login' %}" method="POST" autocomplete="off">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button style="cursor: pointer;" type="submit" class="btn btn-primary">Log-In</button>
+            <br>
+            <p style="margin-top: 2vh;">Don't have an account? <a href="{% url 'register' %}">Register here.</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,193 @@
+{% extends "fiji/layout.html" %}
+{% load static %}
+
+{% block title %}Cuisine &#10023;{% endblock %}
+
+{% block body %}
+
+{% if message %} 
+    <div class="message">{{message}}</div>
+{% endif %}
+
+<div class="backgroundbanner" style="background-image: url(https://image.freepik.com/free-vector/seamless-pattern-coconut-palm-leaves_127928-33.jpg);">
+    <div class="centralwhite">
+        <h1 class="titlecolor">Fijian Cuisine</h1>
+        <p style="padding-top: 1vh;">Fiji is better known for its beaches rather than its cuisine. However, this small island nation still has a rich culinary heritage. 
+            Traditional cooking methods consist of cooking over an open fire or in an underground oven. The large Indo-Fijian community has left 
+            a lasting impact on the country’s food. Many Indians came to Fiji in the 1870s as indentured servants who worked in this former British 
+            colony’s sugarcane industry. They introduced many curries and chilies that make this Pacific island nation’s cuisine distinct from its 
+            neighbors. Sweet potato, rice, cassava, coconut, fish, and taro (a starchy root vegetable similar to yam) is used to create amazing 
+            Fijian dishes. Whether served by locals while you stay a rental, or whether you try it out served at a resort in Fiji, you shouldn’t 
+            miss out on the opportunity to try these dishes. To sum up, no matter where you stay in Fiji, don’t miss out on these traditional Fiji 
+            food when you’re in the country.
+        </p>
+        
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://blog.arousingappetites.com/wp-content/uploads/2017/01/Arousing-Appetites-8-of-10.jpg">
+                <h2 style="padding-top: 3vh;">1. Kokoda</h2>
+                <p>Similar to ceviche Kokoda is a fish marinated in citrus juices. Made with Mahi Mahi or any other freshly caught local fish, its mixed 
+                with coconut cream, onions, tomatoes and chilis​. The locals love this spicy dish and its served in a super festive way: in a large 
+                clamshell or coconut shell. It's considered the national dish of Fiji.</p>
+                <input name="foodimage" value="https://blog.arousingappetites.com/wp-content/uploads/2017/01/Arousing-Appetites-8-of-10.jpg" type="hidden">
+                <input name="foodtitle" value="Kokoda" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://i.pinimg.com/originals/30/3d/f3/303df3304e44af0dbb9b297601669a97.jpg">
+                <h2 style="padding-top: 3vh;">2. Lovo</h2>
+                <p>Lovo is a cooking method and when you serve lovo, you serve an array of dishes cooked in a lovo. Similar to when you have BBQ. ​
+                    The lovo is kind of like an underground oven. For a lovo, all the proteins and the taro are marinated and then wrapped in foil. 
+                    After all the food is placed in the hole, everything is covered up with banana leaves and hot rocks and left for 2-3 hours to cook. 
+                    This is a popular celebratory meal.</p>
+                <input name="foodimage" value="https://i.pinimg.com/originals/30/3d/f3/303df3304e44af0dbb9b297601669a97.jpg" type="hidden">
+                <input name="foodtitle" value="Lovo" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://static.trip101.com/paragraph_media/pictures/002/113/747/large/topoi-1592377505.jpg">
+                <h2 style="padding-top: 3vh;">3. Topoi</h2>
+                <p>​Topoi is a Fijian dumpling made with grated cassava and coconut, coconut milk or cream, and sugar. The sweet cassava mixture is 
+                    typically shaped into balls, which are then simmered in a pot of boiling water until soft and thoroughly cooked. Once boiled, 
+                    the cassava dumplings are taken out, and the remaining water is further cooked with additional grated cassava and coconut milk 
+                    until it has thickened to a porridge-like consistency. Topoi is a typical Fijian breakfast that is usually accompanied by butter, 
+                    jam, and a cup of steaming tea on the side.</p>
+                <input name="foodimage" value="https://static.trip101.com/paragraph_media/pictures/002/113/747/large/topoi-1592377505.jpg" type="hidden">
+                <input name="foodtitle" value="Topoi" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%; " src="https://img.17qq.com/images/fjhhpdojpjz.jpeg">
+                <h2 style="padding-top: 3vh;">4. Rourou</h2>
+                <p>Rourou is Dalo or Taro leaves and is similar to spinach. It can be served in a variety of ways. One popular preparation is to cook it 
+                down to a similar consistency as that of cream of spinach (without the cream)​. The super traditional Fijian tradition involves cooking 
+                the rourou leaves in an underground earth oven also know as a "Lovo". With Rourou you can also make Fijian Rourou Peti, which is 
+                rourou leaves stuffed with a mixture of chili, onion, coconut milk, and tuna. They are little bundles of joy in the mouth.​</p>
+                <input name="foodimage" value="https://img.17qq.com/images/fjhhpdojpjz.jpeg" type="hidden">
+                <input name="foodtitle" value="Rourou" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://www.polynesia.com/blog/wp-content/uploads/2020/05/palusami-on-plate.jpg">
+                <h2 style="padding-top: 3vh;">5. Palusami</h2>
+                <p>Palusami is assembled using rourou or taro leaves, the leaves are stuffed with a meat and coconut mixture.​ It usually stuffed 
+                    with corned beef and onion but its common to stuff it with seafood also. Corned beef has been traditionally used because fresh 
+                    meat hasn't always been easily accessible to the island.​</p>
+                <input name="foodimage" value="https://www.polynesia.com/blog/wp-content/uploads/2020/05/palusami-on-plate.jpg" type="hidden">
+                <input name="foodtitle" value="Palusami" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://i0.wp.com/www.angsarap.net/wp-content/uploads/2012/01/cassava-cake-moms-version.jpg">
+                <h2 style="padding-top: 3vh;">6. Cassava Cake</h2>
+                <p>Cassava Cake is a classic dessert made from grated cassava. Cassava is known as such in Fiji but it is known 
+                    in other regions as Tapioca or Sago. Cassava starch is also used to make tapioca. Kind of similar in consistency to sticky rice 
+                    you can top this with butter, jam, fresh fruits or whatever you like.​​</p>
+                <input name="foodimage" value="https://i0.wp.com/www.angsarap.net/wp-content/uploads/2012/01/cassava-cake-moms-version.jpg" type="hidden">
+                <input name="foodtitle" value="Cassava Cake" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://d3hcoe79thio2n.cloudfront.net/wp-content/uploads/2018/07/chicken-curry-1024x680.jpg">
+                <h2 style="padding-top: 3vh;">7. Fijian Chicken Curry</h2>
+                <p>A classic Fiji-Indian dish. Over the years, it has become an extremely popular dish throughout the country. People of all 
+                    backgrounds love and enjoy its rich and aromatic flavour. It consists of chicken stewed in an onion- and tomato-based sauce, 
+                    flavoured with ginger, garlic, tomato puree, chilli peppers and a variety of spices, often including turmeric, cumin, coriander, 
+                    cinnamon, and cardamom. Usually served with rice.</p>
+                <input name="foodimage" value="https://d3hcoe79thio2n.cloudfront.net/wp-content/uploads/2018/07/chicken-curry-1024x680.jpg" type="hidden">
+                <input name="foodtitle" value="Fijian Chicken Curry" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://w3t8y8f2.rocketcdn.me/wp-content/uploads/2020/06/Fiijian-Roti-Recipe-roti-close-1024x683.jpg">
+                <h2 style="padding-top: 3vh;">8. Roti</h2>
+                <p>Roti (also known as chapati) is a round flatbread native to the Indian subcontinent made from stoneground whole wheat flour, 
+                    and water that is combined into a dough. Roti is consumed in many countries worldwide. Its defining characteristic is that 
+                    it is unleavened. Like breads around the world, roti is a staple accompaniment to other foods.​</p>
+                <input name="foodimage" value="https://w3t8y8f2.rocketcdn.me/wp-content/uploads/2020/06/Fiijian-Roti-Recipe-roti-close-1024x683.jpg" type="hidden">
+                <input name="foodtitle" value="Roti" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token %}
+                <img style="width: 100%;" src="https://i0.wp.com/tarasmulticulturaltable.com/wp-content/uploads/2017/03/Fish-Suruwa-Fijian-Fish-Curry-3-of-3.jpg">
+                <h2 style="padding-top: 3vh;">9. Suruwa</h2>
+                <p>The Indian influence on Fijian cuisine is particularly prominent in dishes such as this Fish Suruwa. Onions, chilies, spices 
+                    (garam masala, turmeric, cumin), and tomatoes are simmered to create the curry base for the fish and the addition of coconut 
+                    milk gives a creamy texture. It's served with steamed white rice and top with a sprinkling of freshly chopped cilantro.​</p>
+                <input name="foodimage" value="https://i0.wp.com/tarasmulticulturaltable.com/wp-content/uploads/2017/03/Fish-Suruwa-Fijian-Fish-Curry-3-of-3.jpg" type="hidden">
+                <input name="foodtitle" value="Suruwa" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="imagedescr">
+            <form action="{% url 'food' %}" method="POST">
+                {% csrf_token%}
+                <img style="width: 100%;" src="https://thatfijitaste.com/wp-content/uploads/2017/01/Chicken-Chopsuey-750x550.jpg">
+                <h2 style="padding-top: 3vh;">10. Fijian Chop Suey</h2>
+                <p>Chicken stirfry is a favourite in Fiji. Over the years, it has become a staple meal in Fiji being sold in almost every food court 
+                    and restaurant on the islands. The Chinese population in Fiji although small, has had a big impact on the cuisine of the country.
+                    Chicken chopsuey Fiji-style is one that has a thick gravy base and full of fresh vegetables.​</p>
+                <input name="foodimage" value="https://thatfijitaste.com/wp-content/uploads/2017/01/Chicken-Chopsuey-750x550.jpg" type="hidden">
+                <input name="foodtitle" value="Fijian Chop Suey" type="hidden">
+                {% if user.is_authenticated %}
+                <button style="cursor: pointer;" type="submit" class="btn btn-primary btn-lg btn-block">Add to wishlist</button>
+                {% endif %}
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
